@@ -40,7 +40,7 @@ class Workforce(Product):
     @classmethod
     def parse(cls, node: bs4.Tag, **kwargs) -> dict:
         product = super(Workforce, cls).parse(node, **kwargs)
-        product['icon'] = "img/resources/workforce_" + product['icon'].replace("resource_", "")
+        product['icon'] = "/img/resources/workforce_" + product['icon'].replace("resource_", "")
         return product
 
 
@@ -74,7 +74,7 @@ class NormalProduct(RealProduct):
     @classmethod
     def parse(cls, node: bs4.Tag, **kwargs) -> dict:
         product = super(NormalProduct, cls).parse(node, **kwargs)
-        product['icon'] = "img/goods/" + product['icon']
+        product['icon'] = "/img/goods/" + product['icon']
         return product
 
 

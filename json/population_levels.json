@@ -2,7 +2,7 @@
   {
     "id": 15000000,
     "name": "Moderate Population 1",
-    "icon": "img/population/farmer.png",
+    "icon": "/img/population/farmer.png",
     "text": "Farmers",
     "needs": [
       {
@@ -56,7 +56,7 @@
   {
     "id": 15000001,
     "name": "Moderate Population 2",
-    "icon": "img/population/worker.png",
+    "icon": "/img/population/worker.png",
     "text": "Workers",
     "needs": [
       {
@@ -142,7 +142,7 @@
   {
     "id": 15000002,
     "name": "Moderate Population 3",
-    "icon": "img/population/artisan.png",
+    "icon": "/img/population/artisan.png",
     "text": "Artisans",
     "needs": [
       {
@@ -234,7 +234,7 @@
   {
     "id": 15000003,
     "name": "Moderate Population 4",
-    "icon": "img/population/engineer.png",
+    "icon": "/img/population/engineer.png",
     "text": "Engineers",
     "needs": [
       {
@@ -333,7 +333,7 @@
   {
     "id": 15000004,
     "name": "Moderate Population 5",
-    "icon": "img/population/investor.png",
+    "icon": "/img/population/investor.png",
     "text": "Investors",
     "needs": [
       {
@@ -440,7 +440,7 @@
   {
     "id": 15000005,
     "name": "Colony01 Population 1",
-    "icon": "img/population/colony_tier01.png",
+    "icon": "/img/population/colony_tier01.png",
     "text": "Jornaleros",
     "needs": [
       {
@@ -484,7 +484,7 @@
   {
     "id": 15000006,
     "name": "Colony01 Population 2",
-    "icon": "img/population/colony_tier02.png",
+    "icon": "/img/population/colony_tier02.png",
     "text": "Obreros",
     "needs": [
       {

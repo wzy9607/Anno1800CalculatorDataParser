@@ -24,6 +24,7 @@ class Building(Template):
         building['name'] = str(node.Standard.Name.string)
         icon_str = str(node.Standard.IconFilename.string)
         building['icon'] = re.search('icons/icon_(?P<name>.*)', icon_str).group('name')
+        building['icon'] = "/img/goods/" + building['icon']
         building['text'] = str(node.Text.LocaText.English.Text.string)
         building['costs'] = kwargs['costs']
         if node.FactoryBase.FactoryInputs:
@@ -38,7 +39,6 @@ class Farm(Building):
     @classmethod
     def parse(cls, node: bs4.Tag, **kwargs) -> dict:
         farm = super(Farm, cls).parse(node, **kwargs)
-        farm['icon'] = "img/goods/" + farm['icon']
         return farm
 
 
@@ -47,7 +47,6 @@ class Factory(Building):
     @classmethod
     def parse(cls, node: bs4.Tag, **kwargs) -> dict:
         factory = super(Factory, cls).parse(node, **kwargs)
-        factory['icon'] = "img/goods/" + factory['icon']
         return factory
 
 

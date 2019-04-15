@@ -2,7 +2,7 @@
   {
     "id": 1010262,
     "name": "agriculture_01 (Grain Farm)",
-    "icon": "cereals_2.png",
+    "icon": "/img/goods/cereals_2.png",
     "text": "Grain Farm",
     "costs": [
       {
@@ -48,7 +48,7 @@
   {
     "id": 1010263,
     "name": "agriculture_02 (Cattle Farm)",
-    "icon": "meat_raw.png",
+    "icon": "/img/goods/meat_raw.png",
     "text": "Cattle Farm",
     "costs": [
       {
@@ -94,7 +94,7 @@
   {
     "id": 1010264,
     "name": "agriculture_03 (Hop Farm)",
-    "icon": "hops.png",
+    "icon": "/img/goods/hops.png",
     "text": "Hop Farm",
     "costs": [
       {
@@ -140,7 +140,7 @@
   {
     "id": 1010265,
     "name": "agriculture_04 (Potato Farm)",
-    "icon": "potatoes.png",
+    "icon": "/img/goods/potatoes.png",
     "text": "Potato Farm",
     "costs": [
       {
@@ -186,7 +186,7 @@
   {
     "id": 1010266,
     "name": "agriculture_05 (Timber Yard)",
-    "icon": "wood_log.png",
+    "icon": "/img/goods/wood_log.png",
     "text": "Lumberjack's Hut",
     "costs": [
       {
@@ -231,7 +231,7 @@
   {
     "id": 1010267,
     "name": "agriculture_06 (Sheep Farm)",
-    "icon": "wool.png",
+    "icon": "/img/goods/wool.png",
     "text": "Sheep Farm",
     "costs": [
       {
@@ -277,7 +277,7 @@
   {
     "id": 1010269,
     "name": "agriculture_08 (Pig Farm)",
-    "icon": "pigs.png",
+    "icon": "/img/goods/pigs.png",
     "text": "Pig Farm",
     "costs": [
       {
@@ -323,7 +323,7 @@
   {
     "id": 1010558,
     "name": "agriculture_09 (Hunter's Cabin)",
-    "icon": "fur.png",
+    "icon": "/img/goods/fur.png",
     "text": "Hunting Cabin",
     "costs": [
       {
@@ -369,7 +369,7 @@
   {
     "id": 100654,
     "name": "agriculture_11 (Bell Pepper Farm)",
-    "icon": "pepper.png",
+    "icon": "/img/goods/pepper.png",
     "text": "Red Pepper Farm",
     "costs": [
       {
@@ -415,7 +415,7 @@
   {
     "id": 100655,
     "name": "agriculture_10 (Vineyard)",
-    "icon": "grapes.png",
+    "icon": "/img/goods/grapes.png",
     "text": "Vineyard",
     "costs": [
       {
@@ -461,7 +461,7 @@
   {
     "id": 1010278,
     "name": "coastal_01 (Fish Coast Building)",
-    "icon": "fish.png",
+    "icon": "/img/goods/fish.png",
     "text": "Fishery",
     "costs": [
       {
@@ -507,7 +507,7 @@
   {
     "id": 1010310,
     "name": "coastal_02 (Niter Coast Building)",
-    "icon": "niter.png",
+    "icon": "/img/goods/niter.png",
     "text": "Saltpeter Works",
     "costs": [
       {
@@ -555,7 +555,7 @@
   {
     "id": 1010560,
     "name": "coastal_03 (Quartz Sand Coast Building)",
-    "icon": "quartz_sand.png",
+    "icon": "/img/goods/quartz_sand.png",
     "text": "Sand Mine",
     "costs": [
       {
