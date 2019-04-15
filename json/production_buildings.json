@@ -1,602 +1,605 @@
-[
-  {
-    "id": 1010262,
-    "name": "agriculture_01 (Grain Farm)",
-    "icon": "/img/goods/cereals_2.png",
-    "text": "Grain Farm",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 500.0
-      },
-      {
-        "id": 1010196,
-        "amount": 4.0
-      },
-      {
-        "id": 1010205
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 1010192,
-        "amount": 1.0,
-        "storage_amount": 2.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 20.0,
-        "inactive_amount": 10.0
-      },
-      {
-        "id": 1010052,
-        "amount": 20.0
-      }
-    ]
-  },
-  {
-    "id": 1010263,
-    "name": "agriculture_02 (Cattle Farm)",
-    "icon": "/img/goods/meat_raw.png",
-    "text": "Cattle Farm",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 2000.0
-      },
-      {
-        "id": 1010196,
-        "amount": 6.0
-      },
-      {
-        "id": 1010205
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 1010193,
-        "amount": 1.0,
-        "storage_amount": 1.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 50.0,
-        "inactive_amount": 25.0
-      },
-      {
-        "id": 1010052,
-        "amount": 20.0
-      }
-    ]
-  },
-  {
-    "id": 1010264,
-    "name": "agriculture_03 (Hop Farm)",
-    "icon": "/img/goods/hops.png",
-    "text": "Hop Farm",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 500.0
-      },
-      {
-        "id": 1010196,
-        "amount": 4.0
-      },
-      {
-        "id": 1010205
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 1010194,
-        "amount": 1.0,
-        "storage_amount": 1.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 20.0,
-        "inactive_amount": 10.0
-      },
-      {
-        "id": 1010052,
-        "amount": 20.0
-      }
-    ]
-  },
-  {
-    "id": 1010265,
-    "name": "agriculture_04 (Potato Farm)",
-    "icon": "/img/goods/potatoes.png",
-    "text": "Potato Farm",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 100.0
-      },
-      {
-        "id": 1010196,
-        "amount": 2.0
-      },
-      {
-        "id": 1010205
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 1010195,
-        "amount": 1.0,
-        "storage_amount": 4.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 20.0,
-        "inactive_amount": 10.0
-      },
-      {
-        "id": 1010052,
-        "amount": 20.0
-      }
-    ]
-  },
-  {
-    "id": 1010266,
-    "name": "agriculture_05 (Timber Yard)",
-    "icon": "/img/goods/wood_log.png",
-    "text": "Lumberjack's Hut",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 100.0
-      },
-      {
-        "id": 1010196
-      },
-      {
-        "id": 1010205
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 120008,
-        "amount": 1.0,
-        "storage_amount": 8.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 10.0,
-        "inactive_amount": 5.0
-      },
-      {
-        "id": 1010052,
-        "amount": 5.0
-      }
-    ]
-  },
-  {
-    "id": 1010267,
-    "name": "agriculture_06 (Sheep Farm)",
-    "icon": "/img/goods/wool.png",
-    "text": "Sheep Farm",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 100.0
-      },
-      {
-        "id": 1010196,
-        "amount": 2.0
-      },
-      {
-        "id": 1010205
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 1010197,
-        "amount": 1.0,
-        "storage_amount": 4.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 20.0,
-        "inactive_amount": 10.0
-      },
-      {
-        "id": 1010052,
-        "amount": 10.0
-      }
-    ]
-  },
-  {
-    "id": 1010269,
-    "name": "agriculture_08 (Pig Farm)",
-    "icon": "/img/goods/pigs.png",
-    "text": "Pig Farm",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 500.0
-      },
-      {
-        "id": 1010196,
-        "amount": 4.0
-      },
-      {
-        "id": 1010205
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 1010199,
-        "amount": 1.0,
-        "storage_amount": 4.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 40.0,
-        "inactive_amount": 20.0
-      },
-      {
-        "id": 1010052,
-        "amount": 30.0
-      }
-    ]
-  },
-  {
-    "id": 1010558,
-    "name": "agriculture_09 (Hunter's Cabin)",
-    "icon": "/img/goods/fur.png",
-    "text": "Hunting Cabin",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 2000.0
-      },
-      {
-        "id": 1010196,
-        "amount": 6.0
-      },
-      {
-        "id": 1010205
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 1010209,
-        "amount": 1.0,
-        "storage_amount": 4.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 50.0,
-        "inactive_amount": 25.0
-      },
-      {
-        "id": 1010052,
-        "amount": 10.0
-      }
-    ]
-  },
-  {
-    "id": 100654,
-    "name": "agriculture_11 (Bell Pepper Farm)",
-    "icon": "/img/goods/pepper.png",
-    "text": "Red Pepper Farm",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 2000.0
-      },
-      {
-        "id": 1010196,
-        "amount": 6.0
-      },
-      {
-        "id": 1010205
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 1010198,
-        "amount": 1.0,
-        "storage_amount": 1.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 100.0,
-        "inactive_amount": 50.0
-      },
-      {
-        "id": 1010052,
-        "amount": 10.0
-      }
-    ]
-  },
-  {
-    "id": 100655,
-    "name": "agriculture_10 (Vineyard)",
-    "icon": "/img/goods/grapes.png",
-    "text": "Vineyard",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 8000.0
-      },
-      {
-        "id": 1010196,
-        "amount": 10.0
-      },
-      {
-        "id": 1010205
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 120014,
-        "amount": 1.0,
-        "storage_amount": 1.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 200.0,
-        "inactive_amount": 100.0
-      },
-      {
-        "id": 1010052,
-        "amount": 10.0
-      }
-    ]
-  },
-  {
-    "id": 1010278,
-    "name": "coastal_01 (Fish Coast Building)",
-    "icon": "/img/goods/fish.png",
-    "text": "Fishery",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 100.0
-      },
-      {
-        "id": 1010196,
-        "amount": 2.0
-      },
-      {
-        "id": 1010205
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 1010200,
-        "amount": 1.0,
-        "storage_amount": 4.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 40.0,
-        "inactive_amount": 20.0
-      },
-      {
-        "id": 1010052,
-        "amount": 25.0
-      }
-    ]
-  },
-  {
-    "id": 1010310,
-    "name": "coastal_02 (Niter Coast Building)",
-    "icon": "/img/goods/niter.png",
-    "text": "Saltpeter Works",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 12500.0
-      },
-      {
-        "id": 1010196,
-        "amount": 10.0
-      },
-      {
-        "id": 1010205,
-        "amount": 20.0
-      },
-      {
-        "id": 1010218,
-        "amount": 16.0
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 1010232,
-        "amount": 1.0,
-        "storage_amount": 1.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 500.0,
-        "inactive_amount": 250.0
-      },
-      {
-        "id": 1010115,
-        "amount": 25.0
-      }
-    ]
-  },
-  {
-    "id": 1010560,
-    "name": "coastal_03 (Quartz Sand Coast Building)",
-    "icon": "/img/goods/quartz_sand.png",
-    "text": "Sand Mine",
-    "costs": [
-      {
-        "id": 1010017,
-        "amount": 2000.0
-      },
-      {
-        "id": 1010196,
-        "amount": 6.0
-      },
-      {
-        "id": 1010205,
-        "amount": 5.0
-      },
-      {
-        "id": 1010218
-      },
-      {
-        "id": 1010207
-      },
-      {
-        "id": 1010202
-      }
-    ],
-    "outputs": [
-      {
-        "id": 1010228,
-        "amount": 1.0,
-        "storage_amount": 4.0
-      }
-    ],
-    "maintenances": [
-      {
-        "id": 1010017,
-        "amount": 120.0,
-        "inactive_amount": 60.0
-      },
-      {
-        "id": 1010115,
-        "amount": 25.0
-      }
-    ]
-  }
-]
+{
+  "Version": "Open Beta",
+  "ProductionBuildings": [
+    {
+      "id": 1010262,
+      "name": "agriculture_01 (Grain Farm)",
+      "icon": "/img/goods/cereals_2.png",
+      "text": "Grain Farm",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 4.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010192,
+          "amount": 1.0,
+          "storage_amount": 2.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 20.0,
+          "inactive_amount": 10.0
+        },
+        {
+          "id": 1010052,
+          "amount": 20.0
+        }
+      ]
+    },
+    {
+      "id": 1010263,
+      "name": "agriculture_02 (Cattle Farm)",
+      "icon": "/img/goods/meat_raw.png",
+      "text": "Cattle Farm",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 2000.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010193,
+          "amount": 1.0,
+          "storage_amount": 1.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 50.0,
+          "inactive_amount": 25.0
+        },
+        {
+          "id": 1010052,
+          "amount": 20.0
+        }
+      ]
+    },
+    {
+      "id": 1010264,
+      "name": "agriculture_03 (Hop Farm)",
+      "icon": "/img/goods/hops.png",
+      "text": "Hop Farm",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 4.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010194,
+          "amount": 1.0,
+          "storage_amount": 1.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 20.0,
+          "inactive_amount": 10.0
+        },
+        {
+          "id": 1010052,
+          "amount": 20.0
+        }
+      ]
+    },
+    {
+      "id": 1010265,
+      "name": "agriculture_04 (Potato Farm)",
+      "icon": "/img/goods/potatoes.png",
+      "text": "Potato Farm",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 100.0
+        },
+        {
+          "id": 1010196,
+          "amount": 2.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010195,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 20.0,
+          "inactive_amount": 10.0
+        },
+        {
+          "id": 1010052,
+          "amount": 20.0
+        }
+      ]
+    },
+    {
+      "id": 1010266,
+      "name": "agriculture_05 (Timber Yard)",
+      "icon": "/img/goods/wood_log.png",
+      "text": "Lumberjack's Hut",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 100.0
+        },
+        {
+          "id": 1010196
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120008,
+          "amount": 1.0,
+          "storage_amount": 8.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 10.0,
+          "inactive_amount": 5.0
+        },
+        {
+          "id": 1010052,
+          "amount": 5.0
+        }
+      ]
+    },
+    {
+      "id": 1010267,
+      "name": "agriculture_06 (Sheep Farm)",
+      "icon": "/img/goods/wool.png",
+      "text": "Sheep Farm",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 100.0
+        },
+        {
+          "id": 1010196,
+          "amount": 2.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010197,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 20.0,
+          "inactive_amount": 10.0
+        },
+        {
+          "id": 1010052,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 1010269,
+      "name": "agriculture_08 (Pig Farm)",
+      "icon": "/img/goods/pigs.png",
+      "text": "Pig Farm",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 4.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010199,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 40.0,
+          "inactive_amount": 20.0
+        },
+        {
+          "id": 1010052,
+          "amount": 30.0
+        }
+      ]
+    },
+    {
+      "id": 1010558,
+      "name": "agriculture_09 (Hunter's Cabin)",
+      "icon": "/img/goods/fur.png",
+      "text": "Hunting Cabin",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 2000.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010209,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 50.0,
+          "inactive_amount": 25.0
+        },
+        {
+          "id": 1010052,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 100654,
+      "name": "agriculture_11 (Bell Pepper Farm)",
+      "icon": "/img/goods/pepper.png",
+      "text": "Red Pepper Farm",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 2000.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010198,
+          "amount": 1.0,
+          "storage_amount": 1.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 100.0,
+          "inactive_amount": 50.0
+        },
+        {
+          "id": 1010052,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 100655,
+      "name": "agriculture_10 (Vineyard)",
+      "icon": "/img/goods/grapes.png",
+      "text": "Vineyard",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 8000.0
+        },
+        {
+          "id": 1010196,
+          "amount": 10.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120014,
+          "amount": 1.0,
+          "storage_amount": 1.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 200.0,
+          "inactive_amount": 100.0
+        },
+        {
+          "id": 1010052,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 1010278,
+      "name": "coastal_01 (Fish Coast Building)",
+      "icon": "/img/goods/fish.png",
+      "text": "Fishery",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 100.0
+        },
+        {
+          "id": 1010196,
+          "amount": 2.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010200,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 40.0,
+          "inactive_amount": 20.0
+        },
+        {
+          "id": 1010052,
+          "amount": 25.0
+        }
+      ]
+    },
+    {
+      "id": 1010310,
+      "name": "coastal_02 (Niter Coast Building)",
+      "icon": "/img/goods/niter.png",
+      "text": "Saltpeter Works",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 12500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 10.0
+        },
+        {
+          "id": 1010205,
+          "amount": 20.0
+        },
+        {
+          "id": 1010218,
+          "amount": 16.0
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010232,
+          "amount": 1.0,
+          "storage_amount": 1.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 500.0,
+          "inactive_amount": 250.0
+        },
+        {
+          "id": 1010115,
+          "amount": 25.0
+        }
+      ]
+    },
+    {
+      "id": 1010560,
+      "name": "coastal_03 (Quartz Sand Coast Building)",
+      "icon": "/img/goods/quartz_sand.png",
+      "text": "Sand Mine",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 2000.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205,
+          "amount": 5.0
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010228,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 120.0,
+          "inactive_amount": 60.0
+        },
+        {
+          "id": 1010115,
+          "amount": 25.0
+        }
+      ]
+    }
+  ]
+}
