@@ -43,8 +43,7 @@ def main():
         #         .contents[3].contents[1]("Asset")
         
         product_tags = \
-            soup.AssetList.Groups.contents[5].Groups.contents[1].Groups.contents[3].Groups.contents[5].Groups.contents[
-                1].Groups("Asset")
+            soup.AssetList.Groups.contents[5].Groups.contents[1].Groups.contents[3].Groups.contents[5].Groups("Asset")
         products = product_parser.parse_normal_products(product_tags)
         with (output_path / "products.json").open(mode = "w", encoding = "utf-8") as output_file:
             json.dump(products, output_file, ensure_ascii = False, indent = JSON_INDENT)
