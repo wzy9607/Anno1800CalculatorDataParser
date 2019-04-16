@@ -24,7 +24,7 @@ class Building(Template):
         building['name'] = str(node.Standard.Name.string)
         icon_str = str(node.Standard.IconFilename.string)
         building['icon'] = re.search('icons/icon_(?P<name>.*)', icon_str).group('name')
-        building['icon'] = "/img/goods/" + building['icon']
+        building['icon'] = "goods/" + building['icon']
         building['text'] = str(node.Text.LocaText.English.Text.string)
         building['costs'] = kwargs['costs']
         if node.FactoryBase.FactoryInputs:

@@ -4,7 +4,7 @@
     {
       "id": 1010262,
       "name": "agriculture_01 (Grain Farm)",
-      "icon": "/img/goods/cereals_2.png",
+      "icon": "goods/cereals_2.png",
       "text": "Grain Farm",
       "costs": [
         {
@@ -50,7 +50,7 @@
     {
       "id": 1010263,
       "name": "agriculture_02 (Cattle Farm)",
-      "icon": "/img/goods/meat_raw.png",
+      "icon": "goods/meat_raw.png",
       "text": "Cattle Farm",
       "costs": [
         {
@@ -96,7 +96,7 @@
     {
       "id": 1010264,
       "name": "agriculture_03 (Hop Farm)",
-      "icon": "/img/goods/hops.png",
+      "icon": "goods/hops.png",
       "text": "Hop Farm",
       "costs": [
         {
@@ -142,7 +142,7 @@
     {
       "id": 1010265,
       "name": "agriculture_04 (Potato Farm)",
-      "icon": "/img/goods/potatoes.png",
+      "icon": "goods/potatoes.png",
       "text": "Potato Farm",
       "costs": [
         {
@@ -188,7 +188,7 @@
     {
       "id": 1010266,
       "name": "agriculture_05 (Timber Yard)",
-      "icon": "/img/goods/wood_log.png",
+      "icon": "goods/wood_log.png",
       "text": "Lumberjack's Hut",
       "costs": [
         {
@@ -233,7 +233,7 @@
     {
       "id": 1010267,
       "name": "agriculture_06 (Sheep Farm)",
-      "icon": "/img/goods/wool.png",
+      "icon": "goods/wool.png",
       "text": "Sheep Farm",
       "costs": [
         {
@@ -279,7 +279,7 @@
     {
       "id": 1010269,
       "name": "agriculture_08 (Pig Farm)",
-      "icon": "/img/goods/pigs.png",
+      "icon": "goods/pigs.png",
       "text": "Pig Farm",
       "costs": [
         {
@@ -325,7 +325,7 @@
     {
       "id": 1010558,
       "name": "agriculture_09 (Hunter's Cabin)",
-      "icon": "/img/goods/fur.png",
+      "icon": "goods/fur.png",
       "text": "Hunting Cabin",
       "costs": [
         {
@@ -371,7 +371,7 @@
     {
       "id": 100654,
       "name": "agriculture_11 (Bell Pepper Farm)",
-      "icon": "/img/goods/pepper.png",
+      "icon": "goods/pepper.png",
       "text": "Red Pepper Farm",
       "costs": [
         {
@@ -417,7 +417,7 @@
     {
       "id": 100655,
       "name": "agriculture_10 (Vineyard)",
-      "icon": "/img/goods/grapes.png",
+      "icon": "goods/grapes.png",
       "text": "Vineyard",
       "costs": [
         {
@@ -463,7 +463,7 @@
     {
       "id": 1010278,
       "name": "coastal_01 (Fish Coast Building)",
-      "icon": "/img/goods/fish.png",
+      "icon": "goods/fish.png",
       "text": "Fishery",
       "costs": [
         {
@@ -509,7 +509,7 @@
     {
       "id": 1010310,
       "name": "coastal_02 (Niter Coast Building)",
-      "icon": "/img/goods/niter.png",
+      "icon": "goods/niter.png",
       "text": "Saltpeter Works",
       "costs": [
         {
@@ -557,7 +557,7 @@
     {
       "id": 1010560,
       "name": "coastal_03 (Quartz Sand Coast Building)",
-      "icon": "/img/goods/quartz_sand.png",
+      "icon": "goods/quartz_sand.png",
       "text": "Sand Mine",
       "costs": [
         {
@@ -604,7 +604,7 @@
     {
       "id": 1010280,
       "name": "factory_01 (Concrete Factory)",
-      "icon": "/img/goods/reinforced_concrete.png",
+      "icon": "goods/reinforced_concrete.png",
       "text": "Concrete Factory",
       "costs": [
         {
@@ -665,7 +665,7 @@
     {
       "id": 1010281,
       "name": "factory_02 (Soap Factory)",
-      "icon": "/img/goods/soap_2.png",
+      "icon": "goods/soap_2.png",
       "text": "Soap Factory",
       "costs": [
         {
@@ -720,7 +720,7 @@
     {
       "id": 1010283,
       "name": "factory_04 (Brick Factory)",
-      "icon": "/img/goods/bricks.png",
+      "icon": "goods/bricks.png",
       "text": "Brick Factory",
       "costs": [
         {
@@ -773,7 +773,7 @@
     {
       "id": 100451,
       "name": "factory_03 (Timber Factory)",
-      "icon": "/img/goods/wooden_planks.png",
+      "icon": "goods/wooden_planks.png",
       "text": "Sawmill",
       "costs": [
         {
@@ -825,7 +825,7 @@
     {
       "id": 1010325,
       "name": "factory_05 (Fur Coat Workshop)",
-      "icon": "/img/goods/fur_coats.png",
+      "icon": "goods/fur_coats.png",
       "text": "Fur Dealer",
       "costs": [
         {
@@ -886,7 +886,7 @@
     {
       "id": 1010286,
       "name": "factory_06 (Light Bulb Factory)",
-      "icon": "/img/goods/light_bulb.png",
+      "icon": "goods/light_bulb.png",
       "text": "Light Bulb Factory",
       "costs": [
         {
@@ -948,7 +948,7 @@
     {
       "id": 1010285,
       "name": "factory_07 (Window Factory)",
-      "icon": "/img/goods/glass_window_3.png",
+      "icon": "goods/glass_window_3.png",
       "text": "Window-Makers",
       "costs": [
         {
@@ -1008,7 +1008,7 @@
     {
       "id": 1010288,
       "name": "factory_09 (Sailcloth Factory)",
-      "icon": "/img/goods/sail.png",
+      "icon": "goods/sail.png",
       "text": "Sailmakers",
       "costs": [
         {
@@ -1062,7 +1062,7 @@
     {
       "id": 100416,
       "name": "factory_11 (Clay Pit)",
-      "icon": "/img/goods/clay.png",
+      "icon": "goods/clay.png",
       "text": "Clay Pit",
       "costs": [
         {
@@ -1108,7 +1108,7 @@
     {
       "id": 1010289,
       "name": "factory_10 (Chassis Factory)",
-      "icon": "/img/goods/chassis.png",
+      "icon": "goods/chassis.png",
       "text": "Coachmakers",
       "costs": [
         {
@@ -1170,7 +1170,7 @@
     {
       "id": 1010291,
       "name": "food_01 (Bread Maker)",
-      "icon": "/img/goods/bread.png",
+      "icon": "goods/bread.png",
       "text": "Bakery",
       "costs": [
         {
@@ -1224,7 +1224,7 @@
     {
       "id": 1010292,
       "name": "food_02 (Beer Maker)",
-      "icon": "/img/goods/beer.png",
+      "icon": "goods/beer.png",
       "text": "Brewery",
       "costs": [
         {
@@ -1284,7 +1284,7 @@
     {
       "id": 1010293,
       "name": "food_03 (Goulash Factory)",
-      "icon": "/img/goods/goulash_01.png",
+      "icon": "goods/goulash_01.png",
       "text": "Artisanal Kitchen",
       "costs": [
         {
@@ -1345,7 +1345,7 @@
     {
       "id": 1010295,
       "name": "food_05 (Canned Food Factory)",
-      "icon": "/img/goods/canned_goulash.png",
+      "icon": "goods/canned_goulash.png",
       "text": "Cannery",
       "costs": [
         {
@@ -1406,7 +1406,7 @@
     {
       "id": 1010294,
       "name": "food_06 (Schnapps Maker)",
-      "icon": "/img/goods/schnapps_4.png",
+      "icon": "goods/schnapps_4.png",
       "text": "Schnapps Distillery",
       "costs": [
         {
@@ -1459,7 +1459,7 @@
     {
       "id": 1010316,
       "name": "food_07 (Sausage Maker)",
-      "icon": "/img/goods/meat_sausage.png",
+      "icon": "goods/meat_sausage.png",
       "text": "Butcher's",
       "costs": [
         {
@@ -1513,7 +1513,7 @@
     {
       "id": 100659,
       "name": "food_08 (Champagne Maker)",
-      "icon": "/img/goods/champagne.png",
+      "icon": "goods/champagne.png",
       "text": "Champagne Cellar",
       "costs": [
         {
@@ -1575,7 +1575,7 @@
     {
       "id": 1010296,
       "name": "heavy_01 (Beams Heavy Industry)",
-      "icon": "/img/goods/beams.png",
+      "icon": "goods/beams.png",
       "text": "Steelworks",
       "costs": [
         {
@@ -1629,7 +1629,7 @@
     {
       "id": 1010297,
       "name": "heavy_02 (Steel Heavy Industry)",
-      "icon": "/img/goods/steel.png",
+      "icon": "goods/steel.png",
       "text": "Furnace",
       "costs": [
         {
@@ -1688,7 +1688,7 @@
     {
       "id": 1010298,
       "name": "heavy_03 (Coal Heavy Industry)",
-      "icon": "/img/goods/coal_burn.png",
+      "icon": "goods/coal_burn.png",
       "text": "Charcoal Kiln",
       "costs": [
         {
@@ -1735,7 +1735,7 @@
     {
       "id": 1010299,
       "name": "heavy_04 (Weapons Heavy Industry)",
-      "icon": "/img/goods/weapons.png",
+      "icon": "goods/weapons.png",
       "text": "Weapon Factory",
       "costs": [
         {
@@ -1790,7 +1790,7 @@
     {
       "id": 1010301,
       "name": "heavy_06 (Advanced Weapons Heavy Industry)",
-      "icon": "/img/goods/advanced_weaponry.png",
+      "icon": "goods/advanced_weaponry.png",
       "text": "Heavy Weapons Factory",
       "costs": [
         {
@@ -1852,7 +1852,7 @@
     {
       "id": 1010302,
       "name": "heavy_07 (Steam Motors Heavy Industry)",
-      "icon": "/img/goods/steam_machine.png",
+      "icon": "goods/steam_machine.png",
       "text": "Motor Assembly Line",
       "costs": [
         {
@@ -1914,7 +1914,7 @@
     {
       "id": 1010303,
       "name": "heavy_08 (Steam Carriages Heavy Industry)",
-      "icon": "/img/goods/steam_carriage.png",
+      "icon": "goods/steam_carriage.png",
       "text": "Cab Assembly Line",
       "costs": [
         {
@@ -1976,7 +1976,7 @@
     {
       "id": 1010282,
       "name": "heavy_09 (Brass Heavy Industry)",
-      "icon": "/img/goods/brass.png",
+      "icon": "goods/brass.png",
       "text": "Brass Smeltery",
       "costs": [
         {
@@ -2038,7 +2038,7 @@
     {
       "id": 101331,
       "name": "heavy_10 (Oil Heavy Industry)",
-      "icon": "/img/goods/oil.png",
+      "icon": "goods/oil.png",
       "text": "Oil Refinery",
       "costs": [
         {
@@ -2088,7 +2088,7 @@
     {
       "id": 1010304,
       "name": "mining_01 (Coal Mine)",
-      "icon": "/img/goods/coal_2.png",
+      "icon": "goods/coal_2.png",
       "text": "Coal Mine",
       "costs": [
         {
@@ -2135,7 +2135,7 @@
     {
       "id": 1010305,
       "name": "mining_02 (Iron Mine)",
-      "icon": "/img/goods/iron.png",
+      "icon": "goods/iron.png",
       "text": "Iron Mine",
       "costs": [
         {
@@ -2182,7 +2182,7 @@
     {
       "id": 1010307,
       "name": "mining_04 (Zinc Mine)",
-      "icon": "/img/goods/tin_ore.png",
+      "icon": "goods/tin_ore.png",
       "text": "Zinc Mine",
       "costs": [
         {
@@ -2232,7 +2232,7 @@
     {
       "id": 1010308,
       "name": "mining_05 (Copper Mine)",
-      "icon": "/img/goods/copper.png",
+      "icon": "goods/copper.png",
       "text": "Copper Mine",
       "costs": [
         {
@@ -2282,7 +2282,7 @@
     {
       "id": 1010309,
       "name": "mining_06 (Cement Mine)",
-      "icon": "/img/goods/cement.png",
+      "icon": "goods/cement.png",
       "text": "Limestone Quarry",
       "costs": [
         {
@@ -2331,7 +2331,7 @@
     {
       "id": 1010311,
       "name": "mining_08 (Gold Ore Mine)",
-      "icon": "/img/goods/gold_ore.png",
+      "icon": "goods/gold_ore.png",
       "text": "Gold Mine",
       "costs": [
         {
@@ -2381,7 +2381,7 @@
     {
       "id": 1010312,
       "name": "processing_01 (Tallow Processing)",
-      "icon": "/img/goods/tallow.png",
+      "icon": "goods/tallow.png",
       "text": "Rendering Works",
       "costs": [
         {
@@ -2436,7 +2436,7 @@
     {
       "id": 1010313,
       "name": "processing_02 (Flour Processing)",
-      "icon": "/img/goods/flour.png",
+      "icon": "goods/flour.png",
       "text": "Flour Mill",
       "costs": [
         {
@@ -2490,7 +2490,7 @@
     {
       "id": 1010314,
       "name": "processing_03 (Malt Processing)",
-      "icon": "/img/goods/malt.png",
+      "icon": "goods/malt.png",
       "text": "Malthouse",
       "costs": [
         {
@@ -2545,7 +2545,7 @@
     {
       "id": 1010315,
       "name": "processing_04 (Weavery)",
-      "icon": "/img/goods/working_cloth.png",
+      "icon": "goods/working_cloth.png",
       "text": "Framework Knitters",
       "costs": [
         {
@@ -2598,7 +2598,7 @@
     {
       "id": 1010300,
       "name": "processing_05 (Dynamite Processing)",
-      "icon": "/img/goods/dynamite.png",
+      "icon": "goods/dynamite.png",
       "text": "Dynamite Factory",
       "costs": [
         {
@@ -2660,7 +2660,7 @@
     {
       "id": 1010319,
       "name": "processing_06 (Glass Processing)",
-      "icon": "/img/goods/glass.png",
+      "icon": "goods/glass.png",
       "text": "Glassmakers",
       "costs": [
         {
@@ -2715,7 +2715,7 @@
     {
       "id": 1010320,
       "name": "processing_07 (Inlay Processing)",
-      "icon": "/img/goods/inlay.png",
+      "icon": "goods/inlay.png",
       "text": "Marquetry Workshop",
       "costs": [
         {
@@ -2772,7 +2772,7 @@
     {
       "id": 1010321,
       "name": "processing_08 (Carbon Filament Processing)",
-      "icon": "/img/goods/carbon_filament.png",
+      "icon": "goods/carbon_filament.png",
       "text": "Filament Factory",
       "costs": [
         {
@@ -2829,7 +2829,7 @@
     {
       "id": 1010323,
       "name": "workshop_01 (High-Wheeler Workshop)",
-      "icon": "/img/goods/high_wheeler.png",
+      "icon": "goods/high_wheeler.png",
       "text": "Bicycle Factory",
       "costs": [
         {
@@ -2891,7 +2891,7 @@
     {
       "id": 1010324,
       "name": "workshop_02 (Pocket Watch Workshop)",
-      "icon": "/img/goods/pocket_watch.png",
+      "icon": "goods/pocket_watch.png",
       "text": "Clockmakers",
       "costs": [
         {
@@ -2953,7 +2953,7 @@
     {
       "id": 1010284,
       "name": "workshop_03 (Sewing Machines Factory)",
-      "icon": "/img/goods/sewing_machine.png",
+      "icon": "goods/sewing_machine.png",
       "text": "Sewing Machine Factory",
       "costs": [
         {
@@ -3014,7 +3014,7 @@
     {
       "id": 1010326,
       "name": "workshop_04 (Phonographs Workshop)",
-      "icon": "/img/goods/phonographs.png",
+      "icon": "goods/phonographs.png",
       "text": "Gramophone Factory",
       "costs": [
         {
@@ -3076,7 +3076,7 @@
     {
       "id": 1010327,
       "name": "workshop_05 (Gold Workshop)",
-      "icon": "/img/goods/gold.png",
+      "icon": "goods/gold.png",
       "text": "Goldsmiths",
       "costs": [
         {
@@ -3138,7 +3138,7 @@
     {
       "id": 1010328,
       "name": "workshop_06 (Jewelry Workshop)",
-      "icon": "/img/goods/jewelry.png",
+      "icon": "goods/jewelry.png",
       "text": "Jewellers",
       "costs": [
         {
@@ -3200,7 +3200,7 @@
     {
       "id": 101250,
       "name": "workshop_07 (Glasses Workshop)",
-      "icon": "/img/goods/glasses.png",
+      "icon": "goods/glasses.png",
       "text": "Spectacle Factory",
       "costs": [
         {
@@ -3262,7 +3262,7 @@
     {
       "id": 1010329,
       "name": "agriculture_colony01_01 (Sugar Cane Farm)",
-      "icon": "/img/goods/cane_sugar_1.png",
+      "icon": "goods/cane_sugar_1.png",
       "text": "Sugar Cane Plantation",
       "costs": [
         {
@@ -3308,7 +3308,7 @@
     {
       "id": 1010330,
       "name": "agriculture_colony01_02 (Tobacco Farm)",
-      "icon": "/img/goods/tobacco.png",
+      "icon": "goods/tobacco.png",
       "text": "Tobacco Plantation",
       "costs": [
         {
@@ -3354,7 +3354,7 @@
     {
       "id": 1010331,
       "name": "agriculture_colony01_03 (Cotton Farm)",
-      "icon": "/img/goods/cotton.png",
+      "icon": "goods/cotton.png",
       "text": "Cotton Plantation",
       "costs": [
         {
@@ -3400,7 +3400,7 @@
     {
       "id": 1010332,
       "name": "agriculture_colony01_04 (Cocoa Farm)",
-      "icon": "/img/goods/cocoa.png",
+      "icon": "goods/cocoa.png",
       "text": "Cocoa Plantation",
       "costs": [
         {
@@ -3446,7 +3446,7 @@
     {
       "id": 1010333,
       "name": "agriculture_colony01_05 (Caoutchouc Farm)",
-      "icon": "/img/goods/caoutchouc.png",
+      "icon": "goods/caoutchouc.png",
       "text": "Caoutchouc Plantation",
       "costs": [
         {
@@ -3492,7 +3492,7 @@
     {
       "id": 101251,
       "name": "agriculture_colony01_07 (Coffee Beans Farm)",
-      "icon": "/img/goods/coffee_beans.png",
+      "icon": "goods/coffee_beans.png",
       "text": "Coffee Plantation",
       "costs": [
         {
@@ -3538,7 +3538,7 @@
     {
       "id": 101263,
       "name": "agriculture_colony01_08 (Banana Farm)",
-      "icon": "/img/goods/banana.png",
+      "icon": "goods/banana.png",
       "text": "Plantain Plantation",
       "costs": [
         {
@@ -3584,7 +3584,7 @@
     {
       "id": 101270,
       "name": "agriculture_colony01_10 (Corn Farm)",
-      "icon": "/img/goods/corn.png",
+      "icon": "goods/corn.png",
       "text": "Corn Farm",
       "costs": [],
       "outputs": [
@@ -3609,7 +3609,7 @@
     {
       "id": 101272,
       "name": "agriculture_colony01_11 (Alpaca Farm)",
-      "icon": "/img/goods/alpaca_wool.png",
+      "icon": "goods/alpaca_wool.png",
       "text": "Alpaca Farm",
       "costs": [
         {
@@ -3655,7 +3655,7 @@
     {
       "id": 1010339,
       "name": "coastal_colony01_01 (Pearls Coast Building)",
-      "icon": "/img/goods/pearls.png",
+      "icon": "goods/pearls.png",
       "text": "Pearl Farm",
       "costs": [
         {
@@ -3701,7 +3701,7 @@
     {
       "id": 101262,
       "name": "coastal_colony01_02 (Fish Coast Building)",
-      "icon": "/img/goods/fishoil.png",
+      "icon": "goods/fishoil.png",
       "text": "Fish Oil Factory",
       "costs": [
         {
@@ -3747,7 +3747,7 @@
     {
       "id": 1010318,
       "name": "factory_colony01_03 (Cotton Cloth Processing)",
-      "icon": "/img/goods/cotton_fur.png",
+      "icon": "goods/cotton_fur.png",
       "text": "Cotton Mill",
       "costs": [
         {
@@ -3800,7 +3800,7 @@
     {
       "id": 101415,
       "name": "factory_colony01_06 (Felt Maker)",
-      "icon": "/img/goods/felt.png",
+      "icon": "goods/felt.png",
       "text": "Felt Producer",
       "costs": [
         {
@@ -3854,7 +3854,7 @@
     {
       "id": 101273,
       "name": "factory_colony01_07 (Bombin Maker)",
-      "icon": "/img/goods/bowler_hat.png",
+      "icon": "goods/bowler_hat.png",
       "text": "Bombín Weaver",
       "costs": [
         {
@@ -3913,7 +3913,7 @@
     {
       "id": 1010340,
       "name": "food_colony01_01 (Rum Maker)",
-      "icon": "/img/goods/rum_barrel.png",
+      "icon": "goods/rum_barrel.png",
       "text": "Rum Distillery",
       "costs": [
         {
@@ -3971,7 +3971,7 @@
     {
       "id": 1010341,
       "name": "food_colony01_02 (Chocolate Maker)",
-      "icon": "/img/goods/chocolate.png",
+      "icon": "goods/chocolate.png",
       "text": "Chocolate Factory",
       "costs": [
         {
@@ -4029,7 +4029,7 @@
     {
       "id": 101252,
       "name": "food_colony01_03 (Coffee Maker)",
-      "icon": "/img/goods/coffe_cup.png",
+      "icon": "goods/coffe_cup.png",
       "text": "Coffee Roaster",
       "costs": [
         {
@@ -4083,7 +4083,7 @@
     {
       "id": 101264,
       "name": "food_colony01_04 (Fried Banana Maker)",
-      "icon": "/img/goods/fried_bananas.png",
+      "icon": "goods/fried_bananas.png",
       "text": "Fried Plantain Kitchen",
       "costs": [
         {
@@ -4141,7 +4141,7 @@
     {
       "id": 101271,
       "name": "food_colony01_05 (Burrito Maker)",
-      "icon": "/img/goods/burrito.png",
+      "icon": "goods/burrito.png",
       "text": "Tortilla Maker",
       "costs": [
         {
@@ -4200,7 +4200,7 @@
     {
       "id": 1010317,
       "name": "processing_colony01_01 (Sugar Processing)",
-      "icon": "/img/goods/salt.png",
+      "icon": "goods/salt.png",
       "text": "Sugar Refinery",
       "costs": [
         {
@@ -4253,7 +4253,7 @@
     {
       "id": 101266,
       "name": "processing_colony01_02 (Poncho Maker)",
-      "icon": "/img/goods/poncho.png",
+      "icon": "goods/poncho.png",
       "text": "Poncho Darner",
       "costs": [
         {
@@ -4306,7 +4306,7 @@
     {
       "id": 1010342,
       "name": "workshop_colony01_01 (Cigars Workshop)",
-      "icon": "/img/goods/cigars.png",
+      "icon": "goods/cigars.png",
       "text": "Cigar Factory",
       "costs": [
         {

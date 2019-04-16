@@ -41,7 +41,7 @@ class PopulationLevel(Template):
         population_level['name'] = str(node.Standard.Name.string)
         icon_str = str(node.Standard.IconFilename.string)
         population_level['icon'] = re.search('((icons/icon_)|(profiles/resident_))(?P<name>.*)', icon_str).group('name')
-        population_level['icon'] = "/img/population/" + population_level['icon'].replace("resident_", "")
+        population_level['icon'] = "population/" + population_level['icon'].replace("resident_", "")
         population_level['text'] = str(node.Text.LocaText.English.Text.string)
         population_level['needs'] = kwargs['needs']
         population_level['outputs'] = kwargs['outputs']

@@ -40,7 +40,7 @@ class Workforce(Product):
     @classmethod
     def parse(cls, node: bs4.Tag, **kwargs) -> dict:
         product = super(Workforce, cls).parse(node, **kwargs)
-        product['icon'] = "/img/resources/workforce_" + product['icon'].replace("resource_", "")
+        product['icon'] = "resources/workforce_" + product['icon'].replace("resource_", "")
         return product
 
 
