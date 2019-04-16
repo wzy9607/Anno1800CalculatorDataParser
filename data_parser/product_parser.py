@@ -2,7 +2,7 @@
 
 import bs4
 
-from data_parser.template import AbstractProduct, Product, ResourceProduct, Workforce, ProductCategory
+from data_parser.template import NormalProduct, Product, ProductCategory, ResourceProduct, Workforce
 
 
 def parse_products(tags: bs4.Tag) -> list:
@@ -33,7 +33,7 @@ def parse_normal_products(tags: bs4.Tag) -> list:
     products = []
     for tag in tags:
         node = tag.Values
-        products.append(AbstractProduct.parse(node))
+        products.append(NormalProduct.parse(node))
     return products
 
 

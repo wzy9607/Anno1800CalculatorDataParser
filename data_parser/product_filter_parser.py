@@ -2,7 +2,7 @@
 
 import bs4
 
-from data_parser.template import ProductFilter, ProductFilterCategory, ProductInStream
+from data_parser.template import ProductFilter, ProductFilterCategory
 
 
 def parse_product_filters(tags: bs4.Tag) -> list:

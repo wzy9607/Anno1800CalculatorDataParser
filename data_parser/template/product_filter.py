@@ -1,9 +1,9 @@
 # coding:utf-8
-import re
 
 import bs4
 
 from .template import Template
+
 
 class ProductFilter(Template):
     id = None  # Standard.GUID
