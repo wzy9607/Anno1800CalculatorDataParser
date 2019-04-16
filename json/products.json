@@ -560,6 +560,20 @@
       "icon": "cigars.png",
       "text": "Cigars",
       "category": 11704
+    },
+    {
+      "id": 120021,
+      "name": "stone coal",
+      "icon": "coal.png",
+      "text": "Coal",
+      "category": 11797
+    },
+    {
+      "id": 1010566,
+      "name": "oil",
+      "icon": "oil.png",
+      "text": "Oil",
+      "category": 11797
     }
   ]
 }

@@ -144,7 +144,10 @@
       "id": 11797,
       "name": "Product Category Strategic Resource",
       "text": "Strategic Resource",
-      "products": []
+      "products": [
+        120021,
+        1010566
+      ]
     }
   ]
 }

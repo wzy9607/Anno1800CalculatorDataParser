@@ -65,20 +65,24 @@ def main():
         # with (output_path / "resource_products.json").open(mode = "w", encoding = "utf-8") as output_file:
         #     json.dump(resource_products, output_file, ensure_ascii = False, indent = JSON_INDENT)
         
-        workforce_tags = soup.AssetList.Groups.contents[5].Groups.contents[1].Groups.contents[3].Groups.contents[
-            1].Groups("Asset")
+        workforce_tags = \
+            soup.AssetList.Groups.contents[5].Groups.contents[1].Groups.contents[3].Groups.contents[1].Groups("Asset")
         workforces = product_parser.parse_workforces(workforce_tags)
         workforces = {"Version": VERSION, "Workforces": workforces}
         with (output_path / "workforces.json").open(mode = "w", encoding = "utf-8") as output_file:
             json.dump(workforces, output_file, ensure_ascii = False, indent = JSON_INDENT)
         
         # abstract_need_product_tags = \
-        #     soup.AssetList.contents[1].contents[5].contents[1].contents[1].contents[1].contents[3].contents[1] \
-        #         .contents[3].contents[1]("Asset")
+        #     soup.AssetList.Groups.contents[5].Groups.contents[1].Groups.contents[3].Groups.contents[1].Groups("Asset")
         
         product_tags = \
             soup.AssetList.Groups.contents[5].Groups.contents[1].Groups.contents[3].Groups.contents[5].Groups("Asset")
         products = product_parser.parse_normal_products(product_tags)
+        # coal and oil
+        product2_tags = \
+            soup.AssetList.Groups.contents[5].Groups.contents[1].Groups.contents[3].Groups.contents[7]("Asset")
+        products2 = product_parser.parse_normal_products(product2_tags)
+        products.extend(products2)
         products = {"version": VERSION, "Products": products}
         with (output_path / "products.json").open(mode = "w", encoding = "utf-8") as output_file:
             json.dump(products, output_file, ensure_ascii = False, indent = JSON_INDENT)
