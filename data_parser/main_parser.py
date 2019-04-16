@@ -19,11 +19,42 @@ def main():
             soup.AssetList.contents[1].contents[3].contents[1].contents[1].contents[1].contents[1].contents[1] \
                 .contents[3].contents[1].contents[1]("Asset")
         farms = production_building_parser.parse_farms(farm_tags)
-        factory_tags = \
+        production_buildings = farms
+        factory1_tags = \
             soup.AssetList.contents[1].contents[3].contents[1].contents[1].contents[1].contents[1].contents[1] \
                 .contents[3].contents[1].contents[3]("Asset")
-        factories = production_building_parser.parse_factories(factory_tags)
-        production_buildings = farms + factories
+        factories1 = production_building_parser.parse_factories(factory1_tags)
+        production_buildings.extend(factories1)
+        factory2_tags = \
+            soup.AssetList.contents[1].contents[3].contents[1].contents[1].contents[1].contents[1].contents[1] \
+                .contents[3].contents[1].contents[5]("Asset")
+        factories2 = production_building_parser.parse_factories(factory2_tags)
+        production_buildings.extend(factories2)
+        factory3_tags = \
+            soup.AssetList.contents[1].contents[3].contents[1].contents[1].contents[1].contents[1].contents[1] \
+                .contents[3].contents[1].contents[7]("Asset")
+        factories3 = production_building_parser.parse_factories(factory3_tags)
+        production_buildings.extend(factories3)
+        factory4_tags = \
+            soup.AssetList.contents[1].contents[3].contents[1].contents[1].contents[1].contents[1].contents[1] \
+                .contents[3].contents[1].contents[9]("Asset")
+        factories4 = production_building_parser.parse_factories(factory4_tags)
+        production_buildings.extend(factories4)
+        factory5_tags = \
+            soup.AssetList.contents[1].contents[3].contents[1].contents[1].contents[1].contents[1].contents[1] \
+                .contents[3].contents[1].contents[11]("Asset")
+        factories5 = production_building_parser.parse_factories(factory5_tags)
+        production_buildings.extend(factories5)
+        factory6_tags = \
+            soup.AssetList.contents[1].contents[3].contents[1].contents[1].contents[1].contents[1].contents[1] \
+                .contents[3].contents[1].contents[13]("Asset")
+        factories6 = production_building_parser.parse_factories(factory6_tags)
+        production_buildings.extend(factories6)
+        factory7_tags = \
+            soup.AssetList.contents[1].contents[3].contents[1].contents[1].contents[1].contents[1].contents[1] \
+                .contents[3].contents[1].contents[15]("Asset")
+        factories7 = production_building_parser.parse_factories(factory7_tags)
+        production_buildings.extend(factories7)
         production_buildings = {"Version": VERSION, "ProductionBuildings": production_buildings}
         with (output_path / "production_buildings.json").open(mode = "w", encoding = "utf-8") as output_file:
             json.dump(production_buildings, output_file, ensure_ascii = False, indent = JSON_INDENT)
