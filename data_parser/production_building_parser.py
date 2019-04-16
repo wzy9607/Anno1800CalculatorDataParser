@@ -39,7 +39,15 @@ def parse_factories(tags: bs4.Tag) -> list:
     factories = []
     for tag in tags:
         node = tag.Values
-        costs = parse_costs(node.Cost.Costs("Item"))
+        # TODO
+        if int(node.Standard.GUID.string) == 101260 or int(node.Standard.GUID.string) == 101269 or int(
+                node.Standard.GUID.string) == 101303 or int(node.Standard.GUID.string) == 101296:
+            continue
+        try:
+            costs = parse_costs(node.Cost.Costs("Item"))
+        except AttributeError:
+            print("Can't parse costs of building" + node.Standard.GUID.string)
+            costs = []
         inputs = []
         if node.FactoryBase.FactoryInputs:
             inputs = parse_products_in_production(node.FactoryBase.FactoryInputs("Item"))

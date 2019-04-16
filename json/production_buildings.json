@@ -3258,6 +3258,1002 @@
           "amount": 100.0
         }
       ]
+    },
+    {
+      "id": 1010329,
+      "name": "agriculture_colony01_01 (Sugar Cane Farm)",
+      "icon": "/img/goods/cane_sugar_1.png",
+      "text": "Sugar Cane Plantation",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010251,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 5.0,
+          "inactive_amount": 3.0
+        },
+        {
+          "id": 1010366,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 1010330,
+      "name": "agriculture_colony01_02 (Tobacco Farm)",
+      "icon": "/img/goods/tobacco.png",
+      "text": "Tobacco Plantation",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 7000.0
+        },
+        {
+          "id": 1010196,
+          "amount": 10.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010252,
+          "amount": 1.0,
+          "storage_amount": 1.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 25.0,
+          "inactive_amount": 13.0
+        },
+        {
+          "id": 1010366,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 1010331,
+      "name": "agriculture_colony01_03 (Cotton Farm)",
+      "icon": "/img/goods/cotton.png",
+      "text": "Cotton Plantation",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010253,
+          "amount": 1.0,
+          "storage_amount": 2.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 5.0,
+          "inactive_amount": 3.0
+        },
+        {
+          "id": 1010366,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 1010332,
+      "name": "agriculture_colony01_04 (Cocoa Farm)",
+      "icon": "/img/goods/cocoa.png",
+      "text": "Cocoa Plantation",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 7600.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010254,
+          "amount": 1.0,
+          "storage_amount": 2.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 5.0,
+          "inactive_amount": 3.0
+        },
+        {
+          "id": 1010366,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 1010333,
+      "name": "agriculture_colony01_05 (Caoutchouc Farm)",
+      "icon": "/img/goods/caoutchouc.png",
+      "text": "Caoutchouc Plantation",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 2500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 8.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010255,
+          "amount": 1.0,
+          "storage_amount": 2.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 25.0,
+          "inactive_amount": 13.0
+        },
+        {
+          "id": 1010366,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 101251,
+      "name": "agriculture_colony01_07 (Coffee Beans Farm)",
+      "icon": "/img/goods/coffee_beans.png",
+      "text": "Coffee Plantation",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 2500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 5.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120031,
+          "amount": 1.0,
+          "storage_amount": 2.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 25.0,
+          "inactive_amount": 13.0
+        },
+        {
+          "id": 1010366,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 101263,
+      "name": "agriculture_colony01_08 (Banana Farm)",
+      "icon": "/img/goods/banana.png",
+      "text": "Plantain Plantation",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120041,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 5.0,
+          "inactive_amount": 3.0
+        },
+        {
+          "id": 1010366,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 101270,
+      "name": "agriculture_colony01_10 (Corn Farm)",
+      "icon": "/img/goods/corn.png",
+      "text": "Corn Farm",
+      "costs": [],
+      "outputs": [
+        {
+          "id": 120034,
+          "amount": 1.0,
+          "storage_amount": 2.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 25.0,
+          "inactive_amount": 13.0
+        },
+        {
+          "id": 1010366,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 101272,
+      "name": "agriculture_colony01_11 (Alpaca Farm)",
+      "icon": "/img/goods/alpaca_wool.png",
+      "text": "Alpaca Farm",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120036,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 5.0,
+          "inactive_amount": 3.0
+        },
+        {
+          "id": 1010366,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 1010339,
+      "name": "coastal_colony01_01 (Pearls Coast Building)",
+      "icon": "/img/goods/pearls.png",
+      "text": "Pearl Farm",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 8500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 10.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010256,
+          "amount": 1.0,
+          "storage_amount": 1.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 25.0,
+          "inactive_amount": 13.0
+        },
+        {
+          "id": 1010366,
+          "amount": 50.0
+        }
+      ]
+    },
+    {
+      "id": 101262,
+      "name": "coastal_colony01_02 (Fish Coast Building)",
+      "icon": "/img/goods/fishoil.png",
+      "text": "Fish Oil Factory",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120042,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 5.0,
+          "inactive_amount": 3.0
+        },
+        {
+          "id": 1010366,
+          "amount": 15.0
+        }
+      ]
+    },
+    {
+      "id": 1010342,
+      "name": "workshop_colony01_01 (Cigars Workshop)",
+      "icon": "/img/goods/cigars.png",
+      "text": "Cigar Factory",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 2500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 10.0
+        },
+        {
+          "id": 1010205,
+          "amount": 20.0
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "inputs": [
+        {
+          "id": 1010252,
+          "amount": 1.0,
+          "storage_amount": 3.0
+        },
+        {
+          "id": 1010242,
+          "amount": 1.0,
+          "storage_amount": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010259,
+          "amount": 1.0,
+          "storage_amount": 2.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 250.0,
+          "inactive_amount": 125.0
+        },
+        {
+          "id": 1010367,
+          "amount": 175.0
+        }
+      ]
+    },
+    {
+      "id": 1010340,
+      "name": "food_colony01_01 (Rum Maker)",
+      "icon": "/img/goods/rum_barrel.png",
+      "text": "Rum Distillery",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 2500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "inputs": [
+        {
+          "id": 120008,
+          "amount": 1.0,
+          "storage_amount": 8.0
+        },
+        {
+          "id": 1010251,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010257,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 50.0,
+          "inactive_amount": 25.0
+        },
+        {
+          "id": 1010366,
+          "amount": 30.0
+        }
+      ]
+    },
+    {
+      "id": 1010341,
+      "name": "food_colony01_02 (Chocolate Maker)",
+      "icon": "/img/goods/chocolate.png",
+      "text": "Chocolate Factory",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 24000.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "inputs": [
+        {
+          "id": 1010254,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        },
+        {
+          "id": 1010239,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010258,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 50.0,
+          "inactive_amount": 25.0
+        },
+        {
+          "id": 1010367,
+          "amount": 100.0
+        }
+      ]
+    },
+    {
+      "id": 101252,
+      "name": "food_colony01_03 (Coffee Maker)",
+      "icon": "/img/goods/coffe_cup.png",
+      "text": "Coffee Roaster",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 9000.0
+        },
+        {
+          "id": 1010196,
+          "amount": 5.0
+        },
+        {
+          "id": 1010205,
+          "amount": 3.0
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "inputs": [
+        {
+          "id": 120031,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120032,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 150.0,
+          "inactive_amount": 75.0
+        },
+        {
+          "id": 1010367,
+          "amount": 150.0
+        }
+      ]
+    },
+    {
+      "id": 101264,
+      "name": "food_colony01_04 (Fried Banana Maker)",
+      "icon": "/img/goods/fried_bananas.png",
+      "text": "Fried Plantain Kitchen",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 2.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "inputs": [
+        {
+          "id": 120042,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        },
+        {
+          "id": 120041,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120033,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 15.0,
+          "inactive_amount": 8.0
+        },
+        {
+          "id": 1010366,
+          "amount": 25.0
+        }
+      ]
+    },
+    {
+      "id": 101271,
+      "name": "food_colony01_05 (Burrito Maker)",
+      "icon": "/img/goods/burrito.png",
+      "text": "Tortilla Maker",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 4500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 3.0
+        },
+        {
+          "id": 1010205,
+          "amount": 2.0
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "inputs": [
+        {
+          "id": 1010193,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        },
+        {
+          "id": 120034,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120035,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 100.0,
+          "inactive_amount": 50.0
+        },
+        {
+          "id": 1010367,
+          "amount": 100.0
+        }
+      ]
+    },
+    {
+      "id": 1010317,
+      "name": "processing_colony01_01 (Sugar Processing)",
+      "icon": "/img/goods/salt.png",
+      "text": "Sugar Refinery",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "inputs": [
+        {
+          "id": 1010251,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010239,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 10.0,
+          "inactive_amount": 5.0
+        },
+        {
+          "id": 1010367,
+          "amount": 50.0
+        }
+      ]
+    },
+    {
+      "id": 101266,
+      "name": "processing_colony01_02 (Poncho Maker)",
+      "icon": "/img/goods/poncho.png",
+      "text": "Poncho Darner",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 6.0
+        },
+        {
+          "id": 1010205
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "inputs": [
+        {
+          "id": 120036,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120043,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 15.0,
+          "inactive_amount": 8.0
+        },
+        {
+          "id": 1010366,
+          "amount": 30.0
+        }
+      ]
+    },
+    {
+      "id": 1010342,
+      "name": "workshop_colony01_01 (Cigars Workshop)",
+      "icon": "/img/goods/cigars.png",
+      "text": "Cigar Factory",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 2500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 10.0
+        },
+        {
+          "id": 1010205,
+          "amount": 20.0
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "inputs": [
+        {
+          "id": 1010252,
+          "amount": 1.0,
+          "storage_amount": 3.0
+        },
+        {
+          "id": 1010242,
+          "amount": 1.0,
+          "storage_amount": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "id": 1010259,
+          "amount": 1.0,
+          "storage_amount": 2.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 250.0,
+          "inactive_amount": 125.0
+        },
+        {
+          "id": 1010367,
+          "amount": 175.0
+        }
+      ]
     }
   ]
 }
