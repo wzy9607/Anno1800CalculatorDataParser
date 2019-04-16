@@ -3745,22 +3745,21 @@
       ]
     },
     {
-      "id": 1010342,
-      "name": "workshop_colony01_01 (Cigars Workshop)",
-      "icon": "/img/goods/cigars.png",
-      "text": "Cigar Factory",
+      "id": 1010318,
+      "name": "factory_colony01_03 (Cotton Cloth Processing)",
+      "icon": "/img/goods/cotton_fur.png",
+      "text": "Cotton Mill",
       "costs": [
         {
           "id": 1010017,
-          "amount": 2500.0
+          "amount": 500.0
         },
         {
           "id": 1010196,
-          "amount": 10.0
+          "amount": 6.0
         },
         {
-          "id": 1010205,
-          "amount": 20.0
+          "id": 1010205
         },
         {
           "id": 1010218
@@ -3774,32 +3773,140 @@
       ],
       "inputs": [
         {
-          "id": 1010252,
+          "id": 1010253,
           "amount": 1.0,
-          "storage_amount": 3.0
-        },
-        {
-          "id": 1010242,
-          "amount": 1.0,
-          "storage_amount": 3.0
+          "storage_amount": 6.0
         }
       ],
       "outputs": [
         {
-          "id": 1010259,
+          "id": 1010240,
           "amount": 1.0,
-          "storage_amount": 2.0
+          "storage_amount": 4.0
         }
       ],
       "maintenances": [
         {
           "id": 1010017,
-          "amount": 250.0,
-          "inactive_amount": 125.0
+          "amount": 10.0,
+          "inactive_amount": 5.0
+        },
+        {
+          "id": 1010366,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 101415,
+      "name": "factory_colony01_06 (Felt Maker)",
+      "icon": "/img/goods/felt.png",
+      "text": "Felt Producer",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 2500.0
+        },
+        {
+          "id": 1010196,
+          "amount": 3.0
+        },
+        {
+          "id": 1010205,
+          "amount": 2.0
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "inputs": [
+        {
+          "id": 120036,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120044,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 10.0,
+          "inactive_amount": 5.0
+        },
+        {
+          "id": 1010366,
+          "amount": 10.0
+        }
+      ]
+    },
+    {
+      "id": 101273,
+      "name": "factory_colony01_07 (Bombin Maker)",
+      "icon": "/img/goods/bowler_hat.png",
+      "text": "Bombín Weaver",
+      "costs": [
+        {
+          "id": 1010017,
+          "amount": 9000.0
+        },
+        {
+          "id": 1010196,
+          "amount": 3.0
+        },
+        {
+          "id": 1010205,
+          "amount": 2.0
+        },
+        {
+          "id": 1010218
+        },
+        {
+          "id": 1010207
+        },
+        {
+          "id": 1010202
+        }
+      ],
+      "inputs": [
+        {
+          "id": 1010240,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        },
+        {
+          "id": 120044,
+          "amount": 1.0,
+          "storage_amount": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "id": 120037,
+          "amount": 1.0,
+          "storage_amount": 4.0
+        }
+      ],
+      "maintenances": [
+        {
+          "id": 1010017,
+          "amount": 50.0,
+          "inactive_amount": 25.0
         },
         {
           "id": 1010367,
-          "amount": 175.0
+          "amount": 20.0
         }
       ]
     },

@@ -67,7 +67,7 @@ def main():
         production_buildings.extend(factories10)
         factory10_tags = \
             soup.AssetList.Groups.contents[3].Groups.contents[1].Groups.contents[3].Groups.contents[3].Groups.contents[
-                15]("Asset")
+                5]("Asset")
         factories10 = production_building_parser.parse_factories(factory10_tags)
         production_buildings.extend(factories10)
         factory8_tags = \

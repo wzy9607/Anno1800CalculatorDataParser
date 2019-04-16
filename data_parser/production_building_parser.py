@@ -40,8 +40,10 @@ def parse_factories(tags: bs4.Tag) -> list:
     for tag in tags:
         node = tag.Values
         # TODO
-        if int(node.Standard.GUID.string) == 101260 or int(node.Standard.GUID.string) == 101269 or int(
-                node.Standard.GUID.string) == 101303 or int(node.Standard.GUID.string) == 101296:
+        if int(node.Standard.GUID.string) == 101260 or int(node.Standard.GUID.string) == 101261 or int(
+                node.Standard.GUID.string) == 101265 or int(node.Standard.GUID.string) == 101267 or int(
+                node.Standard.GUID.string) == 101268 or int(node.Standard.GUID.string) == 101269 or int(
+                node.Standard.GUID.string) == 101296 or int(node.Standard.GUID.string) == 101303:
             continue
         try:
             costs = parse_costs(node.Cost.Costs("Item"))
