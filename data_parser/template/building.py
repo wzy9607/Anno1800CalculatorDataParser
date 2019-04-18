@@ -12,6 +12,7 @@ class Building(Template):
     name = None  # Standard.Name
     icon = None  # Standard.IconFilename
     text = None  # Text.LocaText.English.Text
+    production_time = 0.5  # FactoryBase.CycleTime / 60.0
     costs = []  # Cost.Costs
     inputs = []  # FactoryBase.FactoryInputs
     outputs = []  # FactoryBase.FactoryOutputs
@@ -26,10 +27,18 @@ class Building(Template):
         building['icon'] = re.search('icons/icon_(?P<name>.*)', icon_str).group('name')
         building['icon'] = "goods/" + building['icon']
         building['text'] = str(node.Text.LocaText.English.Text.string)
+        if node.FactoryBase.CycleTime:
+            building['production_time'] = int(node.FactoryBase.CycleTime.string) / 60.0
+        else:
+            building['production_time'] = 0.5
         building['costs'] = kwargs['costs']
         if node.FactoryBase.FactoryInputs:
             building['inputs'] = kwargs['inputs']
+            for input1 in building['inputs']:
+                input1['amount_per_minute'] = input1['amount'] / building['production_time']
         building['outputs'] = kwargs['outputs']
+        for output in building['outputs']:
+            output['amount_per_minute'] = output['amount'] / building['production_time']
         building['maintenances'] = kwargs['maintenances']
         return building
 
@@ -65,7 +74,8 @@ class BuildingCost(ProductInStream):
 
 class ProductInProduction(ProductInStream):
     id = None  # Product
-    amount = None  # Amount ton per minute per building
+    amount = None  # Amount ton per cycle per building
+    amount_per_minute = None  # calculate elsewhere ton per minute per building
     storage_amount = None  # StorageAmount the amount of product that building can store
     
     @classmethod

@@ -74,7 +74,7 @@ class NormalProduct(RealProduct):
     @classmethod
     def parse(cls, node: bs4.Tag, **kwargs) -> dict:
         product = super(NormalProduct, cls).parse(node, **kwargs)
-        product['icon'] = "/img/goods/" + product['icon']
+        product['icon'] = "goods/" + product['icon']
         return product
 
 
