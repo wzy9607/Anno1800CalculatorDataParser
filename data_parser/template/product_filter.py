@@ -21,7 +21,8 @@ class ProductFilter(Template):
 
 class ProductFilterCategory(Template):
     id = None  # CategoryAsset
-    name = None  # ?
+    name = None  # ? Standard.Name
+    text = None  # ? Text.LocaText.English.Text
     products = []  # Products
     
     @classmethod
@@ -31,3 +32,11 @@ class ProductFilterCategory(Template):
         product_filter_category['products'] = [int(item.Product.string) for item in
                                                node.Products("Item")]
         return product_filter_category
+    
+    @classmethod
+    def grab_name(cls, assets_map: dict, id: int):
+        node = assets_map.get(id)
+        node = node.Values
+        name = str(node.Standard.Name.string)
+        text = str(node.Text.LocaText.English.Text.string)
+        return {'name': name, 'text': text}
