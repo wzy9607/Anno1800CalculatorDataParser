@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from data_parser import population_parser, product_filter_parser, product_parser, production_building_parser
 
 JSON_INDENT = 2
-VERSION = "Open Beta"
+VERSION = "2019/04/13"
 
 
 def main():
@@ -156,7 +156,7 @@ def main():
         product_filter_tags = \
             soup.AssetList.Groups.contents[35].Groups.contents[7].Groups.contents[3].Groups.contents[1].Assets("Asset")
         product_filters = product_filter_parser.parse_product_filters(product_filter_tags, assets_map)
-        
+        product_filters = {"Version": VERSION, "ProductFilters": product_filters}
         with (output_path / "product_filters.json").open(mode = "w", encoding = "utf-8") as output_file:
             json.dump(product_filters, output_file, ensure_ascii = False, indent = JSON_INDENT)
 
