@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from data_parser import population_parser, product_filter_parser, product_parser, production_building_parser
 
 JSON_INDENT = 2
-VERSION = "2019/04/13"
+VERSION = "2019/04/25"
 
 
 def main():
