@@ -3,10 +3,10 @@ import re
 
 import bs4
 
-from .template import Template
+from .asset import Asset
 
 
-class Product(Template):
+class Product(Asset):
     id = None  # Standard.GUID
     name = None  # Standard.Name
     icon = None  # Standard.IconFilename
@@ -78,7 +78,7 @@ class NormalProduct(RealProduct):
         return product
 
 
-class ProductInStream(Template):
+class ProductInStream:
     id = None  # Product
     amount = None  # Amount
     
@@ -91,7 +91,7 @@ class ProductInStream(Template):
         return product
 
 
-class ProductCategory(Template):
+class ProductCategory(Asset):
     id = None  # Standard.GUID
     name = None  # Standard.Name
     text = None  # Text.LocaText.English.Text

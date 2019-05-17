@@ -2,28 +2,36 @@
 import json
 import pathlib
 
-from bs4 import BeautifulSoup
+import bs4
 
 from data_parser import population_parser, product_filter_parser, product_parser, production_building_parser
 
 JSON_INDENT = 2
-VERSION = "2019/04/25"
+VERSION = "Update 02"
 
 
 def main():
     output_path = pathlib.Path("../json")
     with open("../data/assets.xml", mode = "r", encoding = "utf-8") as file:
-        soup = BeautifulSoup(file, "lxml-xml")
+        soup = bs4.BeautifulSoup(file, "lxml-xml")
         
         assets_map = dict()
-        for asset in soup.find_all("Asset"):
-            tag = asset.Values
-            if tag is None:
-                continue
-            tmp = dict()
-            tmp['id'] = int(tag.Standard.GUID.string)
-            tmp['asset'] = asset
-            assets_map[tmp['id']] = tmp['asset']
+        templates = set()
+        for assets in soup.find_all("Assets"):
+            for asset in assets.children:
+                if isinstance(asset, bs4.NavigableString):
+                    continue
+                if asset.name == "Globe":
+                    continue
+                tag = asset.Values
+                if asset.Template is not None:
+                    template = asset.Template.string
+                    templates.add(template)
+                id = int(tag.Standard.GUID.string)
+                assets_map[id] = asset
+        templates = {"Version": VERSION, "Templates": list(templates)}
+        with (output_path / "templates.json").open(mode = "w", encoding = "utf-8") as output_file:
+            json.dump(templates, output_file, ensure_ascii = False, indent = JSON_INDENT)
         
         farm_tags = \
             soup.AssetList.Groups.contents[3].Groups.contents[1].Groups.contents[1].contents[1] \

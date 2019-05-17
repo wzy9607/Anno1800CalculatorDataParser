@@ -4,10 +4,10 @@ import re
 import bs4
 
 from .product import ProductInStream
-from .template import Template
+from .asset import Asset
 
 
-class Building(Template):
+class Building(Asset):
     id = None  # Standard.GUID
     name = None  # Standard.Name
     icon = None  # Standard.IconFilename

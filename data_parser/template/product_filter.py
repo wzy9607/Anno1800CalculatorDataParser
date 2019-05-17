@@ -2,10 +2,10 @@
 
 import bs4
 
-from .template import Template
+from .asset import Asset
 
 
-class ProductFilter(Template):
+class ProductFilter(Asset):
     id = None  # Standard.GUID
     name = None  # Standard.Name
     categories = []  # ProductFilter.Categories
@@ -19,7 +19,7 @@ class ProductFilter(Template):
         return product_filter
 
 
-class ProductFilterCategory(Template):
+class ProductFilterCategory(Asset):
     id = None  # CategoryAsset
     name = None  # ? Standard.Name
     text = None  # ? Text.LocaText.English.Text
