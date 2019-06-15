@@ -3,8 +3,8 @@ import re
 
 import bs4
 
-from .product import ProductInStream
 from .asset import Asset
+from .product import ProductInStream
 
 
 class Building(Asset):

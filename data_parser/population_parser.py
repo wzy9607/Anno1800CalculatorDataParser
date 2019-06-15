@@ -2,7 +2,7 @@
 
 import bs4
 
-from data_parser.template import Need, PopulationGroup, PopulationLevel, ProductInStream
+from data_parser.template import PopulationGroup, PopulationLevel
 
 
 def parse_population_levels(tags: bs4.Tag) -> list:

@@ -31,6 +31,11 @@ class Asset:
     
     @classmethod
     def parse(cls, node: bs4.Tag, **kwargs) -> dict:
+        """
+        parse Values.Standard and Values.Text
+        :param node:
+        :return: parsing result in a dict
+        """
         asset = dict()
         values = node.Values
         asset['id'] = int(values.Standard.GUID.string)
@@ -40,3 +45,10 @@ class Asset:
         if values.Text:
             asset['text'] = str(values.Text.LocaText.English.Text.string)
         return asset
+    
+    @classmethod
+    def grab_name(cls, assets_map: dict, id: int) -> dict:
+        node = assets_map.get(id)
+        name = str(node.Values.Standard.Name.string)
+        text = str(node.Values.Text.LocaText.English.Text.string)
+        return {'name': name, 'text': text}
