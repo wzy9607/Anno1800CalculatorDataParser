@@ -7,20 +7,21 @@ class Asset:
     """
     <Values>
       <Standard>
-        <GUID></GUID> *
-        <Name></Name> *
-        <IconFilename></IconFilename>
-        <ID></ID>
+        <GUID>GUID</GUID> *
+        <Name>Text</Name> *
+        <IconFilename>Path</IconFilename>
+        <ID>Text</ID> ?
+        <InfoDescription>GUID</InfoDescription> ?
       </Standard>
       <Text>
         <LocaText>
           <English>
-            <Text></Text>
-            <Status></Status>
-            <ExportCount></ExportCount>
+            <Text>Text</Text>
+            <Status>Option("Exported"/"ToBeDeleted"/"GameWriting")</Status> ?
+            <ExportCount>UnsignedInteger</ExportCount> ?
           </English>
         </LocaText>
-        <LineID></LineID>
+        <LineID>UnsignedInteger</LineID> ?
       </Text>
     </Values>
     """

@@ -42,10 +42,10 @@ class ProductFilter(Asset):
 class ProductFilterCategory(Asset):
     """
     <Item>
-      <CategoryAsset>guid</CategoryAsset>
+      <CategoryAsset>GUID</CategoryAsset>
       <Products>
         <Item>
-          <Product>guid</Product>
+          <Product>GUID</Product>
         </Item>
         ...
       </Products>

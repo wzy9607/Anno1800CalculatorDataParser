@@ -33,15 +33,7 @@ class PopulationLevel(Asset):
     """
     <PopulationLevel7>
       <PopulationInputs>
-        <Item>
-          <Product></Product> *
-          <Amount></Amount>
-          <SupplyWeight></SupplyWeight>
-          <HappinessValue></HappinessValue>
-          <MoneyValue></MoneyValue>
-          <FullWeightPopulationCount></FullWeightPopulationCount>
-          <NoWeightPopulationCount></NoWeightPopulationCount>
-        </Item>
+        <Item .../>
         ...
       </PopulationInputs>
       <PopulationOutputs>
@@ -84,9 +76,11 @@ class PopulationLevel(Asset):
     def parse(cls, node: bs4.Tag, **kwargs) -> dict:
         assert (node.Template.string == "PopulationLevel7")
         population_level = super().parse(node, **kwargs)
-        population_level['icon'] = re.search('((icons/icon_)|(profiles/resident_))(?P<name>.*)',
-                                             population_level['icon']).group('name')
-        population_level['icon'] = "population/" + population_level['icon'].replace("resident_", "")
+        # modify icon path and name to fit application
+        icon_str = population_level['icon']
+        icon_str = re.search('((icons/icon_)|(profiles/resident_))(?P<name>.*)', icon_str).group('name')
+        icon_str = "population/" + icon_str.replace("resident_", "")
+        population_level['icon'] = icon_str
         values = node.Values.PopulationLevel7
         population_level['needs'] = [Need.parse(item) for item in values.PopulationInputs("Item")]
         population_level['max_pop_per_house'] = sum(x.get('influx', 0) for x in population_level.get('needs'))
