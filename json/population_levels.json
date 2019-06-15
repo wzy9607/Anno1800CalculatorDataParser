@@ -15,24 +15,24 @@
           "id": 1010200,
           "amount": 0.0004166667,
           "influx": 3,
-          "income": 10.0
+          "income": 10
         },
         {
           "id": 1010216,
           "amount": 0.000555556,
           "happiness": 8,
-          "income": 30.0
+          "income": 30
         },
         {
           "id": 1010237,
           "amount": 0.000512821,
           "influx": 2,
-          "income": 30.0
+          "income": 30
         },
         {
           "id": 1010349,
           "happiness": 12,
-          "income": 12.0
+          "income": 12
         }
       ],
       "max_pop_per_house": 10
@@ -51,36 +51,36 @@
           "id": 1010200,
           "amount": 0.0008333334,
           "influx": 3,
-          "income": 10.0
+          "income": 10
         },
         {
           "id": 1010216,
           "amount": 0.001111112,
           "happiness": 4,
-          "income": 30.0
+          "income": 30
         },
         {
           "id": 1010237,
           "amount": 0.001025642,
           "influx": 2,
-          "income": 30.0
+          "income": 30
         },
         {
           "id": 1010349,
           "happiness": 6,
-          "income": 12.0
+          "income": 12
         },
         {
           "id": 1010238,
           "amount": 0.000333334,
           "influx": 3,
-          "income": 20.0
+          "income": 20
         },
         {
           "id": 1010213,
           "amount": 0.00030303,
           "influx": 3,
-          "income": 20.0
+          "income": 20
         },
         {
           "id": 1010350,
@@ -90,13 +90,13 @@
           "id": 1010203,
           "amount": 0.000138889,
           "influx": 2,
-          "income": 20.0
+          "income": 20
         },
         {
           "id": 1010214,
           "amount": 0.00025641,
           "happiness": 3,
-          "income": 50.0
+          "income": 50
         },
         {
           "id": 1010351,
@@ -115,13 +115,13 @@
           "id": 1010238,
           "amount": 0.000666667,
           "influx": 6,
-          "income": 40.0
+          "income": 40
         },
         {
           "id": 1010213,
           "amount": 0.000606061,
           "influx": 6,
-          "income": 40.0
+          "income": 40
         },
         {
           "id": 1010350,
@@ -131,13 +131,13 @@
           "id": 1010203,
           "amount": 0.000277778,
           "influx": 4,
-          "income": 40.0
+          "income": 40
         },
         {
           "id": 1010214,
           "amount": 0.000512821,
           "happiness": 3,
-          "income": 100.0
+          "income": 100
         },
         {
           "id": 1010351,
@@ -147,30 +147,30 @@
           "id": 1010217,
           "amount": 0.00017094,
           "influx": 4,
-          "income": 20.0
+          "income": 20
         },
         {
           "id": 1010206,
           "amount": 0.00047619,
           "influx": 2,
-          "income": 40.0
+          "income": 40
         },
         {
           "id": 1010352,
           "happiness": 6,
-          "income": 20.0
+          "income": 20
         },
         {
           "id": 1010257,
           "amount": 0.000952381,
           "happiness": 4,
-          "income": 50.0
+          "income": 50
         },
         {
           "id": 1010247,
           "amount": 0.000444444,
           "influx": 2,
-          "income": 60.0
+          "income": 60
         },
         {
           "id": 1010353,
@@ -189,30 +189,30 @@
           "id": 1010217,
           "amount": 0.00034188,
           "influx": 12,
-          "income": 40.0
+          "income": 40
         },
         {
           "id": 1010206,
           "amount": 0.000952381,
           "influx": 6,
-          "income": 80.0
+          "income": 80
         },
         {
           "id": 1010352,
           "happiness": 6,
-          "income": 20.0
+          "income": 20
         },
         {
           "id": 1010257,
           "amount": 0.001904762,
           "happiness": 4,
-          "income": 100.0
+          "income": 100
         },
         {
           "id": 1010247,
           "amount": 0.000888889,
           "influx": 6,
-          "income": 120.0
+          "income": 120
         },
         {
           "id": 1010353,
@@ -222,25 +222,25 @@
           "id": 120030,
           "amount": 0.000148148,
           "influx": 4,
-          "income": 50.0
+          "income": 50
         },
         {
           "id": 1010245,
           "amount": 0.000416667,
           "happiness": 5,
-          "income": 70.0
+          "income": 70
         },
         {
           "id": 120032,
           "amount": 0.000784314,
           "influx": 2,
-          "income": 40.0
+          "income": 40
         },
         {
           "id": 1010246,
           "amount": 0.000130719,
           "happiness": 3,
-          "income": 90.0
+          "income": 90
         },
         {
           "id": 1010354,
@@ -250,12 +250,12 @@
           "id": 1010208,
           "amount": 0.000208333,
           "influx": 2,
-          "income": 70.0
+          "income": 70
         },
         {
           "id": 1010356,
           "happiness": 2,
-          "income": 100.0
+          "income": 100
         }
       ],
       "max_pop_per_house": 40
@@ -270,25 +270,25 @@
           "id": 120030,
           "amount": 0.000296296,
           "influx": 16,
-          "income": 100.0
+          "income": 100
         },
         {
           "id": 1010245,
           "amount": 0.000833333,
           "happiness": 4,
-          "income": 140.0
+          "income": 140
         },
         {
           "id": 120032,
           "amount": 0.001568627,
           "influx": 8,
-          "income": 80.0
+          "income": 80
         },
         {
           "id": 1010246,
           "amount": 0.000261438,
           "happiness": 3,
-          "income": 180.0
+          "income": 180
         },
         {
           "id": 1010354,
@@ -298,53 +298,53 @@
           "id": 1010208,
           "amount": 0.000416667,
           "influx": 8,
-          "income": 140.0
+          "income": 140
         },
         {
           "id": 1010356,
           "happiness": 2,
-          "income": 200.0
+          "income": 200
         },
         {
           "id": 120016,
           "amount": 0.000392,
           "influx": 2,
-          "income": 50.0
+          "income": 50
         },
         {
           "id": 1010259,
           "amount": 0.00037037,
           "influx": 2,
-          "income": 50.0
+          "income": 50
         },
         {
           "id": 1010355,
           "happiness": 5,
-          "income": 50.0
+          "income": 50
         },
         {
           "id": 1010258,
           "amount": 0.000888889,
           "influx": 2,
-          "income": 50.0
+          "income": 50
         },
         {
           "id": 1010250,
           "amount": 0.000350877,
           "happiness": 2,
-          "income": 250.0
+          "income": 250
         },
         {
           "id": 1010248,
           "amount": 8.77e-05,
           "happiness": 4,
-          "income": 150.0
+          "income": 150
         },
         {
           "id": 1010225,
           "amount": 0.000111111,
           "influx": 4,
-          "income": 300.0
+          "income": 300
         }
       ],
       "max_pop_per_house": 50
@@ -363,19 +363,19 @@
           "id": 120033,
           "amount": 0.00047619,
           "influx": 3,
-          "income": 25.0
+          "income": 25
         },
         {
           "id": 1010257,
           "amount": 0.000238095,
           "happiness": 6,
-          "income": 25.0
+          "income": 25
         },
         {
           "id": 120043,
           "amount": 0.000416667,
           "influx": 2,
-          "income": 25.0
+          "income": 25
         },
         {
           "id": 120050,
@@ -398,19 +398,19 @@
           "id": 120033,
           "amount": 0.000952381,
           "influx": 3,
-          "income": 25.0
+          "income": 25
         },
         {
           "id": 1010257,
           "amount": 0.000476191,
           "happiness": 3,
-          "income": 25.0
+          "income": 25
         },
         {
           "id": 120043,
           "amount": 0.000833333,
           "influx": 2,
-          "income": 25.0
+          "income": 25
         },
         {
           "id": 120050,
@@ -420,42 +420,42 @@
           "id": 120035,
           "amount": 0.00047619,
           "influx": 4,
-          "income": 10.0
+          "income": 10
         },
         {
           "id": 120032,
           "amount": 0.000196079,
           "influx": 2,
-          "income": 10.0
+          "income": 10
         },
         {
           "id": 1010348,
           "happiness": 4,
-          "income": 10.0
+          "income": 10
         },
         {
           "id": 120037,
           "amount": 0.000444444,
           "influx": 2,
-          "income": 10.0
+          "income": 10
         },
         {
           "id": 1010214,
           "amount": 0.000444444,
           "happiness": 4,
-          "income": 30.0
+          "income": 30
         },
         {
           "id": 1010259,
           "amount": 0.000185185,
           "happiness": 2,
-          "income": 35.0
+          "income": 35
         },
         {
           "id": 1010206,
           "amount": 0.000416667,
           "influx": 2,
-          "income": 25.0
+          "income": 25
         }
       ],
       "max_pop_per_house": 20

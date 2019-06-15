@@ -3,59 +3,69 @@
 import bs4
 
 from .asset import Asset
+from .utils import grab_name
 
 
 class ProductFilter(Asset):
     """
-    <ProductFilter>
-      <Categories>
-        <Item>
-          <CategoryAsset>guid</CategoryAsset>
-          <Products>
+    <Standard>
+      <GUID>GUID</GUID> *
+      <Name>Text</Name> *
+    </Standard>
+    <ProductFilter .../s>
+    id              Standard.GUID               the GUID of the product filter
+    name            Standard.Name               the name of the product filter
+    categories      ProductFilter.Categories    a list of product filter categories
+        id          .Item.CategoryAsset         the GUID of the category
+        products    .Item.Products              a list of products in the category
+        name                                    the name of the category
+        text                                    the in-game English name of the category
+    """
+    
+    template_name = "ProductFilter"
+    
+    def __init__(self, node: bs4.Tag, parse = True, **kwargs):
+        super().__init__(node, parse = False)
+        self.assets_map = kwargs['assets_map']
+        # parse the node
+        if parse:
+            self.parse()
+    
+    def parse(self):
+        """
+        parse the node, the actual parsers are parse_node_{tag_name}
+        """
+        super().parse()
+        self.parse_node_product_filter(self.values_node.ProductFilter)
+    
+    def parse_node_product_filter(self, node: bs4.Tag):
+        """
+        <ProductFilter>
+          <Categories>
             <Item>
-              <Product>guid</Product>
+              <CategoryAsset>GUID</CategoryAsset> *
+              <Products>
+                <Item>
+                  <Product>GUID</Product> *
+                </Item>
+                ...
+              </Products>
             </Item>
             ...
-          </Products>
-        </Item>
-        ...
-      </Categories>
-    </ProductFilter>
-    """
-    categories = []  # ProductFilter.Categories
-    
-    @classmethod
-    def parse(cls, node: bs4.Tag, **kwargs) -> dict:
-        assert (node.Template.string == "ProductFilter")
-        product_filter = super().parse(node, **kwargs)
-        values = node.Values.ProductFilter
-        assets_map = kwargs['assets_map']
-        product_filter['categories'] = []
-        for item in values.Categories:
+          </Categories>
+        </ProductFilter>
+        categories      ProductFilter.Categories    a list of product filter categories
+            id          .Item.CategoryAsset         the GUID of the category
+            products    .Item.Products              a list of products in the category
+            name                                    the name of the category
+            text                                    the in-game English name of the category
+        :param node: the ProductFilter node
+        """
+        self.values['categories'] = []
+        for item in node.Categories:
             if isinstance(item, bs4.Tag):
-                category = ProductFilterCategory.parse(item)
-                category.update(ProductFilterCategory.grab_name(assets_map, category['id']))
-                product_filter['categories'].append(category)
-        return product_filter
-
-
-class ProductFilterCategory(Asset):
-    """
-    <Item>
-      <CategoryAsset>GUID</CategoryAsset>
-      <Products>
-        <Item>
-          <Product>GUID</Product>
-        </Item>
-        ...
-      </Products>
-    </Item>
-    """
-    products = []  # Item.Products
-    
-    @classmethod
-    def parse(cls, node: bs4.Tag, **kwargs) -> dict:
-        product_filter_category = dict()
-        product_filter_category['id'] = int(node.CategoryAsset.string)
-        product_filter_category['products'] = [int(item.Product.string) for item in node.Products("Item")]
-        return product_filter_category
+                category = dict()
+                category['id'] = int(item.CategoryAsset.string)
+                category.update(grab_name(category['id'], self.assets_map))
+                category['products'] = [int(item.Product.string) for item in item.Products("Item")]
+                self.values['categories'].append(category)

@@ -3,11 +3,11 @@ import re
 
 import bs4
 
-from .asset import Asset
-from .product import ProductInStream
+from data_parser.template.asset import ProductInStream
+from .asset import AssetOld
 
 
-class Building(Asset):
+class Building(AssetOld):
     id = None  # Standard.GUID
     name = None  # Standard.Name
     icon = None  # Standard.IconFilename

@@ -1,16 +1,36 @@
 # coding:utf-8
+import enum
 import re
 
 import bs4
 
-from .utils import parse_session_list
 from .asset import Asset
+from .utils import parse_session_list
+
+
+class Type(enum.Enum):
+    """
+    Product types
+    """
+    RESOURCE_PRODUCT = enum.auto()
+    WORKFORCE = enum.auto()
+    ABSTRACT_PRODUCT = enum.auto()
+    STRATEGIC_RESOURCE = enum.auto()
+    NORMAL_PRODUCT = enum.auto()
 
 
 class Product(Asset):
     """
-    <Locked .../>
-    <Product>
+    <Standard>
+      <GUID>GUID</GUID> *
+      <Name>Text</Name> *
+      <IconFilename>Path</IconFilename> *
+      <ID>Text</ID>
+      <InfoDescription>GUID</InfoDescription>
+    </Standard>
+    <Text .../> *
+    <Locked .../> * TODO
+    <Product> *
       <ProductColor>-11415604</ProductColor> ? only used for Abstract Products
       <StorageLevel>Option("Building"/"Area")</StorageLevel> ?
       <ProductCategory>GUID</ProductCategory>
@@ -23,148 +43,223 @@ class Product(Asset):
       <IsAbstract>Binary(Default 0)</IsAbstract> 1 for Abstract Products
       <PathLayer>Option("Railway")</PathLayer> ? only used for Strategic Resources
       <IsStrategicResource>Binary(Default 0)</IsStrategicResource> 1 for Strategic Resources
-      <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion>
+      <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion> sessions where the product can be consumed
     </Product>
-    <ExpeditionAttribute .../>
+    <ExpeditionAttribute .../> * TODO
     """
     
-    @classmethod
-    def parse(cls, node: bs4.Tag, **kwargs) -> dict:
-        assert (node.Template.string == "Product")
-        product = super().parse(node, **kwargs)
-        values = node.Values.Product
+    template_name = "Product"
+    
+    def parse(self):
+        """
+        parse the node, the actual parsers are parse_node_{tag_name}
+        """
+        super().parse()
+        self.get_type()
         # modify icon path and name to fit application
-        product['icon'] = re.search('icons/icon_(?P<name>.*)', product['icon']).group('name')
-        if values.CanBeNegative:
+        self.values['icon'] = re.search('icons/icon_(?P<name>.*)', self.values['icon']).group('name')
+        if self.type == Type.RESOURCE_PRODUCT:
+            # TODO
             pass
-        elif values.IsWorkforce:
-            # modify icon path and name to fit application
-            product['icon'] = "resources/workforce_" + product['icon'].replace("resource_", "")
-        elif values.IsAbstract:
-            # TODO modify icon path and name to fit application
-            product['category'] = int(values.ProductCategory.string)
-            product['session'] = parse_session_list(values.AssociatedRegion.string)
-        elif values.IsStrategicResource:
-            product['category'] = int(values.ProductCategory.string)
-        else:  # normal product
-            # modify icon path and name to fit application
-            product['icon'] = "goods/" + product['icon']
-            product['category'] = int(values.ProductCategory.string)
-            product['session'] = parse_session_list(values.AssociatedRegion.string)
-        return product
+        elif self.type == Type.WORKFORCE:
+            self.values['icon'] = "resources/workforce_" + self.values['icon'].replace("resource_", "")
+        elif self.type == Type.ABSTRACT_PRODUCT:
+            # TODO
+            pass
+        elif self.type == Type.STRATEGIC_RESOURCE:
+            # TODO
+            pass
+        elif self.type == Type.NORMAL_PRODUCT:
+            self.values['icon'] = "goods/" + self.values['icon']
+        else:
+            raise NotImplementedError
+        self.parse_node_text(self.values_node.Text)
+        self.parse_node_product(self.values_node.Product)
+    
+    def parse_node_product(self, node: bs4.Tag):
+        """
+        <Product> *
+          <ProductColor>-11415604</ProductColor> ?
+          <StorageLevel>Option("Building"/"Area")</StorageLevel> ?
+          <ProductCategory>GUID</ProductCategory>
+          <BasePrice>UnsignedInteger</BasePrice> ?
+          <CivLevel>UnsignedInteger(1, 2, 3, 4, 5)</CivLevel> ?
+          <CanBeNegative>1</CanBeNegative>
+          <DeltaOnly>1</DeltaOnly> ?
+          <IsWorkforce>Binary(Default 0)</IsWorkforce>
+          <IsAbstract>Binary(Default 0)</IsAbstract>
+          <PathLayer>Option("Railway")</PathLayer> ?
+          <IsStrategicResource>Binary(Default 0)</IsStrategicResource>
+          <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion>
+        </Product>
+        category    Product.ProductCategory     the category that the product belongs to
+        session     Product.AssociatedRegion    the list of session where the product can be consumed
+        :param node: the Product node
+        """
+        if self.type == Type.RESOURCE_PRODUCT:
+            pass
+        elif self.type == Type.WORKFORCE:
+            pass
+        elif self.type == Type.ABSTRACT_PRODUCT:
+            self.values['category'] = int(node.ProductCategory.string)
+            self.values['session'] = parse_session_list(node.AssociatedRegion.string)
+        elif self.type == Type.STRATEGIC_RESOURCE:
+            self.values['category'] = int(node.ProductCategory.string)
+        elif self.type == Type.NORMAL_PRODUCT:
+            self.values['category'] = int(node.ProductCategory.string)
+            self.values['session'] = parse_session_list(node.AssociatedRegion.string)
+        else:
+            raise NotImplementedError
+    
+    def get_type(self):
+        """
+        Get type of the product, see Type for available types
+        """
+        if self.values_node.Product.CanBeNegative and self.values_node.Product.CanBeNegative.string == "1":
+            self.type = Type.RESOURCE_PRODUCT
+        elif self.values_node.Product.IsWorkforce and self.values_node.Product.IsWorkforce.string == "1":
+            self.type = Type.WORKFORCE
+        elif self.values_node.Product.IsAbstract and self.values_node.Product.IsAbstract.string == "1":
+            self.type = Type.ABSTRACT_PRODUCT
+        elif self.values_node.Product.IsStrategicResource and self.values_node.Product.IsStrategicResource.string == \
+                "1":
+            self.type = Type.STRATEGIC_RESOURCE
+        else:
+            self.type = Type.NORMAL_PRODUCT
+    
+    # @property
+    # def can_be_negative(self):
+    #     if self.values_node.Product.CanBeNegative and self.values_node.Product.CanBeNegative.string == "1":
+    #         return True
+    #     else:
+    #         return False
+    #
+    # @property
+    # def is_workforce(self):
+    #     if self.values_node.Product.IsWorkforce and self.values_node.Product.IsWorkforce.string == "1":
+    #         return True
+    #     else:
+    #         return False
+    #
+    # @property
+    # def is_abstract_product(self):
+    #     if self.values_node.Product.IsAbstract and self.values_node.Product.IsAbstract.string == "1":
+    #         return True
+    #     else:
+    #         return False
+    #
+    # @property
+    # def is_strategic_resource(self):
+    #     if self.values_node.Product.IsStrategicResource and self.values_node.Product.IsStrategicResource.string ==
+    #     "1":
+    #         return True
+    #     else:
+    #         return False
 
 
 class ResourceProduct(Product):
     """
     Money and Influence
+    <Standard>
+      <GUID>GUID</GUID> *
+      <Name>Text</Name> *
+      <IconFilename>Path</IconFilename> *
+      <ID>Text</ID> *
+    </Standard>
+    <Text .../> *
     <Locked>
-      <DefaultLockedState>0</DefaultLockedState> * ?
+      <DefaultLockedState>0</DefaultLockedState> *
     </Locked>
     <Product>
       <CanBeNegative>1</CanBeNegative> * ?
     </Product>
-    <ExpeditionAttribute />
+    <ExpeditionAttribute /> *
     """
-    
-    @classmethod
-    def parse(cls, node: bs4.Tag, **kwargs) -> dict:
-        product = super(ResourceProduct, cls).parse(node, **kwargs)
-        return product
 
 
 class Workforce(Product):
     """
-    <Locked>
-      <DefaultLockedState>0</DefaultLockedState> * ?
+    <Standard>
+      <GUID>GUID</GUID> *
+      <Name>Text</Name> *
+      <IconFilename>Path</IconFilename> *
+    </Standard>
+    <Text .../> *
+    <Locked> *
+      <DefaultLockedState>0</DefaultLockedState> *
     </Locked>
     <Product>
       <StorageLevel>"Area"</StorageLevel> * ?
       <DeltaOnly>1</DeltaOnly> * ?
-      <IsWorkforce>1</IsWorkforce> * is a Workforce
+      <IsWorkforce>1</IsWorkforce> *
     </Product>
-    <ExpeditionAttribute />
+    <ExpeditionAttribute /> *
     """
-    
-    @classmethod
-    def parse(cls, node: bs4.Tag, **kwargs) -> dict:
-        product = super(Workforce, cls).parse(node, **kwargs)
-        values = node.Values.Product
-        assert (values.IsWorkforce.string == "1")
-        return product
 
 
 class AbstractProduct(Product):
     """
     Market, Pub, etc
     TODO 120022
-    <Locked />
+    <Standard>
+      <GUID>GUID</GUID> *
+      <Name>Text</Name> *
+      <IconFilename>Path</IconFilename> *
+      <ID>Text</ID>
+    </Standard>
+    <Text .../> *
+    <Locked /> *
     <Product>
       <ProductColor>-11415604</ProductColor> * ?
       <StorageLevel>"Building"</StorageLevel> * ?
       <ProductCategory>GUID</ProductCategory> *
-      <IsAbstract>1</IsAbstract> * is a Abstract Product
+      <IsAbstract>1</IsAbstract> *
       <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion> *
     </Product>
-    <ExpeditionAttribute />
+    <ExpeditionAttribute /> *
     """
-    category = None  # Product.ProductCategory product category
-    session = None  # Product.AssociatedRegion in witch sessions this product can be consumed
-    
-    @classmethod
-    def parse(cls, node: bs4.Tag, **kwargs) -> dict:
-        product = super(AbstractProduct, cls).parse(node, **kwargs)
-        values = node.Values.Product
-        assert (values.IsAbstract.string == "1")
-        return product
 
 
 class NormalProduct(Product):
     """
-    <Locked />
+    <Standard>
+      <GUID>GUID</GUID> *
+      <Name>Text</Name> *
+      <IconFilename>Path</IconFilename> *
+      <ID>Text</ID>
+      <InfoDescription>GUID</InfoDescription> *
+    </Standard>
+    <Text .../> *
+    <Locked /> *
     <Product>
-      <StorageLevel>"Building"</StorageLevel> * ?
+      <StorageLevel>"Building"</StorageLevel> *
       <ProductCategory>GUID</ProductCategory> *
       <BasePrice>UnsignedInteger</BasePrice> *
-      <CivLevel>UnsignedInteger(1, 2, 3, 4, 5)</CivLevel> * population level start from witch the product is shown in
-                                                              depots
-      <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion>
+      <CivLevel>UnsignedInteger(1, 2, 3, 4, 5)</CivLevel> *
+      <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion> *
     </Product>
-    <ExpeditionAttribute .../>
+    <ExpeditionAttribute .../> *
     """
-    category = None  # Product.ProductCategory product category
-    session = None  # Product.AssociatedRegion in witch sessions this product can be consumed
-    
-    @classmethod
-    def parse(cls, node: bs4.Tag, **kwargs) -> dict:
-        product = super(NormalProduct, cls).parse(node, **kwargs)
-        return product
 
 
-# TODO strategic resources
-
-
-class ProductInStream:
-    id = None  # Product
-    amount = None  # Amount
-    
-    @classmethod
-    def parse(cls, node: bs4.Tag, **kwargs) -> dict:
-        product = dict()
-        product['id'] = int(node.Product.string)
-        if node.Amount:
-            product['amount'] = float(node.Amount.string)
-        return product
-
-
-class ProductCategory(Asset):
-    id = None  # Standard.GUID
-    name = None  # Standard.Name
-    text = None  # Text.LocaText.English.Text
-    
-    @classmethod
-    def parse(cls, node: bs4.Tag, **kwargs) -> dict:
-        product_category = dict()
-        product_category['id'] = int(node.Standard.GUID.string)
-        product_category['name'] = str(node.Standard.Name.string)
-        product_category['text'] = str(node.Text.LocaText.English.Text.string)
-        return product_category
+class StrategicResources(Product):
+    """
+    <Standard>
+      <GUID>GUID</GUID> *
+      <Name>Text</Name> *
+      <IconFilename>Path</IconFilename> *
+      <ID>Text</ID>
+      <InfoDescription>GUID</InfoDescription> *
+    </Standard>
+    <Text .../> *
+    <Locked /> *
+    <Product>
+      <StorageLevel>"Building"</StorageLevel> *
+      <ProductCategory>GUID</ProductCategory> *
+      <BasePrice>UnsignedInteger</BasePrice> *
+      <CivLevel>UnsignedInteger(1, 2, 3, 4, 5)</CivLevel>
+      <PathLayer>"Railway"</PathLayer> *
+      <IsStrategicResource>1</IsStrategicResource> *
+    </Product>
+    <ExpeditionAttribute .../> *
+    """

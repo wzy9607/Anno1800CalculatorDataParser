@@ -10,5 +10,5 @@ def parse_product_filters(tags: bs4.Tag, assets_map: dict) -> list:
     for tag in tags:
         if tag.Template.string == "ItemFilter":
             continue
-        product_filters.append(ProductFilter.parse(tag, assets_map = assets_map))
+        product_filters.append(ProductFilter(tag, assets_map = assets_map).values)
     return product_filters
