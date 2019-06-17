@@ -1,5 +1,5 @@
 # coding:utf-8
-from .building import *
+from .buildingold import *
 from .population_group import PopulationGroup
 from .population_level import PopulationLevel
 from .product import Product

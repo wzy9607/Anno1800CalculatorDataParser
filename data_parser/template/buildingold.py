@@ -3,11 +3,10 @@ import re
 
 import bs4
 
-from data_parser.template.asset import ProductInStream
-from .asset import AssetOld
+from data_parser.template.old_utils import ProductInStream, AssetOld
 
 
-class Building(AssetOld):
+class BuildingOld(AssetOld):
     id = None  # Standard.GUID
     name = None  # Standard.Name
     icon = None  # Standard.IconFilename
@@ -43,7 +42,7 @@ class Building(AssetOld):
         return building
 
 
-class Farm(Building):
+class Farm(BuildingOld):
     
     @classmethod
     def parse(cls, node: bs4.Tag, **kwargs) -> dict:
@@ -51,7 +50,7 @@ class Farm(Building):
         return farm
 
 
-class Factory(Building):
+class Factory(BuildingOld):
     
     @classmethod
     def parse(cls, node: bs4.Tag, **kwargs) -> dict:

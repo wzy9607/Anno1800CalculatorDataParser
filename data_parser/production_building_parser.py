@@ -2,7 +2,7 @@
 
 import bs4
 
-from data_parser.template import Building, BuildingCost, BuildingMaintenances, ProductInProduction
+from data_parser.template import BuildingOld, BuildingCost, BuildingMaintenances, ProductInProduction
 
 
 def parse_production_building(tags: bs4.Tag) -> list:
@@ -16,7 +16,7 @@ def parse_production_building(tags: bs4.Tag) -> list:
         outputs = parse_products_in_production(node.FactoryBase.FactoryOutputs("Item"))
         maintenances = parse_maintenances(node.Maintenance.Maintenances("Item"))
         buildings.append(
-                Building.parse(node, costs = costs, inputs = inputs, outputs = outputs, maintenances = maintenances))
+                BuildingOld.parse(node, costs = costs, inputs = inputs, outputs = outputs, maintenances = maintenances))
     return buildings
 
 
@@ -31,7 +31,7 @@ def parse_farms(tags: bs4.Tag) -> list:
         outputs = parse_products_in_production(node.FactoryBase.FactoryOutputs("Item"))
         maintenances = parse_maintenances(node.Maintenance.Maintenances("Item"))
         farms.append(
-                Building.parse(node, costs = costs, inputs = inputs, outputs = outputs, maintenances = maintenances))
+                BuildingOld.parse(node, costs = costs, inputs = inputs, outputs = outputs, maintenances = maintenances))
     return farms
 
 
@@ -56,7 +56,7 @@ def parse_factories(tags: bs4.Tag) -> list:
         outputs = parse_products_in_production(node.FactoryBase.FactoryOutputs("Item"))
         maintenances = parse_maintenances(node.Maintenance.Maintenances("Item"))
         factories.append(
-                Building.parse(node, costs = costs, inputs = inputs, outputs = outputs, maintenances = maintenances))
+                BuildingOld.parse(node, costs = costs, inputs = inputs, outputs = outputs, maintenances = maintenances))
     return factories
 
 
