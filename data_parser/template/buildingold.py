@@ -3,7 +3,7 @@ import re
 
 import bs4
 
-from data_parser.template.old_utils import ProductInStream, AssetOld
+from data_parser.template.old_utils import AssetOld, ProductInStream
 
 
 class BuildingOld(AssetOld):
