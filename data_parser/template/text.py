@@ -9,19 +9,10 @@ class Text(Asset):
       <GUID>GUID</GUID> *
       <Name>Text</Name> *
     </Standard>
-    <Text>
-      <LocaText>
-        <English>
-          <Text>Text</Text> *
-          <Status>Option("Exported"/"ToBeDeleted"/"GameWriting")</Status> * ?
-          <ExportCount>UnsignedInteger</ExportCount> * ?
-        </English>
-      </LocaText>
-      <LineID>UnsignedInteger</LineID> * ?
-    </Text>
-    id      Standard.GUID            the GUID of the text
-    name    Standard.Name            the name of the text
-    text    Text.LocaText.English.Text   the in-game English text of the text
+    <Text .../> *
+    id      Standard.GUID               GUID of the text
+    name    Standard.Name               name of the text
+    text    Text.LocaText.English.Text  in-game English text of the text
     """
     template_name = "Text"
     

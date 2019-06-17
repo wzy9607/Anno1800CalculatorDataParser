@@ -12,14 +12,14 @@ class ProductFilter(Asset):
       <GUID>GUID</GUID> *
       <Name>Text</Name> *
     </Standard>
-    <ProductFilter .../s>
-    id              Standard.GUID               the GUID of the product filter
-    name            Standard.Name               the name of the product filter
+    <ProductFilter .../> *
+    id              Standard.GUID               GUID of the product filter
+    name            Standard.Name               name of the product filter
     categories      ProductFilter.Categories    a list of product filter categories
-        id          .Item.CategoryAsset         the GUID of the category
+        id          .Item.CategoryAsset         GUID of the category
         products    .Item.Products              a list of products in the category
-        name                                    the name of the category
-        text                                    the in-game English name of the category
+        name                                    name of the category
+        text                                    in-game English name of the category
     """
     
     template_name = "ProductFilter"
@@ -41,12 +41,12 @@ class ProductFilter(Asset):
     def parse_node_product_filter(self, node: bs4.Tag):
         """
         <ProductFilter>
-          <Categories>
+          <Categories> categories of product filter
             <Item>
-              <CategoryAsset>GUID</CategoryAsset> *
+              <CategoryAsset>GUID</CategoryAsset> * GUID of the category
               <Products>
                 <Item>
-                  <Product>GUID</Product> *
+                  <Product>GUID</Product> * GUID of a product in the category
                 </Item>
                 ...
               </Products>
@@ -55,10 +55,10 @@ class ProductFilter(Asset):
           </Categories>
         </ProductFilter>
         categories      ProductFilter.Categories    a list of product filter categories
-            id          .Item.CategoryAsset         the GUID of the category
+            id          .Item.CategoryAsset         GUID of the category
             products    .Item.Products              a list of products in the category
-            name                                    the name of the category
-            text                                    the in-game English name of the category
+            name                                    name of the category
+            text                                    in-game English name of the category
         :param node: the ProductFilter node
         """
         self.values['categories'] = []

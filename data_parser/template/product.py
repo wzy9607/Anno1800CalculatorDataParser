@@ -30,25 +30,21 @@ class Product(Asset):
     </Standard>
     <Text .../> *
     <Locked .../> * TODO
-    <Product> *
-      <ProductColor>-11415604</ProductColor> ? only used for Abstract Products
-      <StorageLevel>Option("Building"/"Area")</StorageLevel> ?
-      <ProductCategory>GUID</ProductCategory>
-      <BasePrice>UnsignedInteger</BasePrice>
-      <CivLevel>UnsignedInteger(1, 2, 3, 4, 5)</CivLevel> population level start from witch the product is shown in
-                                                              depots
-      <CanBeNegative>1</CanBeNegative> ?
-      <DeltaOnly>1</DeltaOnly> ?
-      <IsWorkforce>Binary(Default 0)</IsWorkforce> 1 for Workforce
-      <IsAbstract>Binary(Default 0)</IsAbstract> 1 for Abstract Products
-      <PathLayer>Option("Railway")</PathLayer> ? only used for Strategic Resources
-      <IsStrategicResource>Binary(Default 0)</IsStrategicResource> 1 for Strategic Resources
-      <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion> sessions where the product can be consumed
-    </Product>
+    <Product .../> *
     <ExpeditionAttribute .../> * TODO
+    id          Standard.GUID               GUID of the product
+    name        Standard.Name               name of the product
+    icon        Standard.IconFilename       icon path of the product
+    text        Text.LocaText.English.Text  in-game English name of the product
+    category    Product.ProductCategory     category that the product belongs to
+    session     Product.AssociatedRegion    list of sessions where the product can be consumed
     """
     
     template_name = "Product"
+    
+    def __init__(self, node: bs4.Tag, **kwargs):
+        super().__init__(node, **kwargs)
+        self.type = None
     
     def parse(self):
         """
@@ -79,21 +75,22 @@ class Product(Asset):
     def parse_node_product(self, node: bs4.Tag):
         """
         <Product> *
-          <ProductColor>-11415604</ProductColor> ?
-          <StorageLevel>Option("Building"/"Area")</StorageLevel> ?
+          <ProductColor>-11415604</ProductColor> ? only used for Abstract Products
+          <StorageLevel>Enum("Building"/"Area")</StorageLevel> ?
           <ProductCategory>GUID</ProductCategory>
-          <BasePrice>UnsignedInteger</BasePrice> ?
-          <CivLevel>UnsignedInteger(1, 2, 3, 4, 5)</CivLevel> ?
-          <CanBeNegative>1</CanBeNegative>
+          <BasePrice>NaturalInteger</BasePrice>
+          <CivLevel>NaturalInteger(1, 2, 3, 4, 5)</CivLevel> ? population level start from witch the product is shown in
+                                                                  depots
+          <CanBeNegative>Binary(Default 0)</CanBeNegative> 1 for Money and Influence
           <DeltaOnly>1</DeltaOnly> ?
-          <IsWorkforce>Binary(Default 0)</IsWorkforce>
-          <IsAbstract>Binary(Default 0)</IsAbstract>
-          <PathLayer>Option("Railway")</PathLayer> ?
-          <IsStrategicResource>Binary(Default 0)</IsStrategicResource>
-          <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion>
+          <IsWorkforce>Binary(Default 0)</IsWorkforce> 1 for Workforce
+          <IsAbstract>Binary(Default 0)</IsAbstract> 1 for Abstract Products
+          <PathLayer>Enum("Railway")</PathLayer> ? only used for Strategic Resources
+          <IsStrategicResource>Binary(Default 0)</IsStrategicResource> 1 for Strategic Resources
+          <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion> sessions where the product can be consumed
         </Product>
-        category    Product.ProductCategory     the category that the product belongs to
-        session     Product.AssociatedRegion    the list of session where the product can be consumed
+        category    Product.ProductCategory     category that the product belongs to
+        session     Product.AssociatedRegion    list of sessions where the product can be consumed
         :param node: the Product node
         """
         if self.type == Type.RESOURCE_PRODUCT:
@@ -102,7 +99,8 @@ class Product(Asset):
             pass
         elif self.type == Type.ABSTRACT_PRODUCT:
             self.values['category'] = int(node.ProductCategory.string)
-            self.values['session'] = parse_session_list(node.AssociatedRegion.string)
+            if node.AssociatedRegion:
+                self.values['session'] = parse_session_list(node.AssociatedRegion.string)
         elif self.type == Type.STRATEGIC_RESOURCE:
             self.values['category'] = int(node.ProductCategory.string)
         elif self.type == Type.NORMAL_PRODUCT:
@@ -200,21 +198,22 @@ class Workforce(Product):
 class AbstractProduct(Product):
     """
     Market, Pub, etc
-    TODO 120022
     <Standard>
       <GUID>GUID</GUID> *
       <Name>Text</Name> *
       <IconFilename>Path</IconFilename> *
       <ID>Text</ID>
+      <InfoDescription>GUID</InfoDescription>
     </Standard>
     <Text .../> *
     <Locked /> *
     <Product>
-      <ProductColor>-11415604</ProductColor> * ?
-      <StorageLevel>"Building"</StorageLevel> * ?
+      <ProductColor>-11415604</ProductColor> ?
+      <StorageLevel>Enum("Building"/"Area")</StorageLevel> * ?
       <ProductCategory>GUID</ProductCategory> *
+      <DeltaOnly>1</DeltaOnly> ?
       <IsAbstract>1</IsAbstract> *
-      <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion> *
+      <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion>
     </Product>
     <ExpeditionAttribute /> *
     """
@@ -234,8 +233,8 @@ class NormalProduct(Product):
     <Product>
       <StorageLevel>"Building"</StorageLevel> *
       <ProductCategory>GUID</ProductCategory> *
-      <BasePrice>UnsignedInteger</BasePrice> *
-      <CivLevel>UnsignedInteger(1, 2, 3, 4, 5)</CivLevel> *
+      <BasePrice>NaturalInteger</BasePrice> *
+      <CivLevel>NaturalInteger(1, 2, 3, 4, 5)</CivLevel> *
       <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion> *
     </Product>
     <ExpeditionAttribute .../> *
@@ -256,8 +255,8 @@ class StrategicResources(Product):
     <Product>
       <StorageLevel>"Building"</StorageLevel> *
       <ProductCategory>GUID</ProductCategory> *
-      <BasePrice>UnsignedInteger</BasePrice> *
-      <CivLevel>UnsignedInteger(1, 2, 3, 4, 5)</CivLevel>
+      <BasePrice>NaturalInteger</BasePrice> *
+      <CivLevel>NaturalInteger(1, 2, 3, 4, 5)</CivLevel>
       <PathLayer>"Railway"</PathLayer> *
       <IsStrategicResource>1</IsStrategicResource> *
     </Product>

@@ -13,10 +13,10 @@ class PopulationGroup(Asset):
     </Standard>
     <Text .../> *
     <PopulationGroup7 .../> *
-    id                  Standard.GUID                       the GUID of the population group
-    name                Standard.Name                       the name of the population group
-    text                Text.LocaText.English.Text          the in-game English name of the population group
-    population_levels   PopulationGroup7.PopulationLevels   the list of population levels in the group
+    id                  Standard.GUID                       GUID of the population group
+    name                Standard.Name                       name of the population group
+    text                Text.LocaText.English.Text          in-game English name of the population group
+    population_levels   PopulationGroup7.PopulationLevels   a list of population levels in the group
     """
     template_name = "PopulationGroup7"
     
@@ -31,14 +31,14 @@ class PopulationGroup(Asset):
     def parse_node_population_group(self, node: bs4.Tag):
         """
         <PopulationGroup7>
-          <PopulationLevels>
+          <PopulationLevels> *
             <Item>
-              <Level>GUID</Level> *
+              <Level>GUID</Level> * GUID of a population level in the group
             </Item>
             ...
           </PopulationLevels>
         </PopulationGroup7>
-        population_levels   PopulationGroup7.PopulationLevels   the list of population levels in the group
+        population_levels   PopulationGroup7.PopulationLevels   a list of population levels in the group
         :param node: the PopulationGroup7 node
         """
         self.values['population_levels'] = [int(item.Level.string) for item in node.PopulationLevels("Item")]
