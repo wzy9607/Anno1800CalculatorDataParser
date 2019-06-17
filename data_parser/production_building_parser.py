@@ -2,7 +2,7 @@
 
 import bs4
 
-from data_parser.template import BuildingOld, BuildingCost, BuildingMaintenances, ProductInProduction
+from data_parser.template import BuildingCost, BuildingMaintenances, BuildingOld, ProductInProduction
 
 
 def parse_production_building(tags: bs4.Tag) -> list:

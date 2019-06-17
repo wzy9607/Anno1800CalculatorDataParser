@@ -48,7 +48,16 @@ class PopulationLevel(Asset):
         """
         <PopulationLevel7>
           <PopulationInputs> * needs of the population level
-            <Item .../>
+            <Item>
+              <Product>GUID</Product> * GUID of the product
+              <Amount>Float</Amount> amount of goods each house consumes every second
+              <SupplyWeight>NaturalInteger</SupplyWeight> amount of people moving into each house due to fulfilling this
+              need
+              <HappinessValue>NaturalInteger</HappinessValue> the increase in happiness due to fulfilling this need
+              <MoneyValue>NaturalInteger</MoneyValue> the increase each house in income due to fulfilling this need
+              <FullWeightPopulationCount>NaturalInteger</FullWeightPopulationCount> ?
+              <NoWeightPopulationCount>NaturalInteger</NoWeightPopulationCount> ?
+            </Item>
             ...
           </PopulationInputs>
           <PopulationOutputs> * ?
@@ -94,37 +103,17 @@ class PopulationLevel(Asset):
         max_pop_per_house                                       sum of influx of needs
         :param node: the PopulationLevel7 node
         """
-        self.values['needs'] = [self.parse_node_population_inputs_dot_item(item) for item in
-                                node.PopulationInputs("Item")]
+        self.values['needs'] = list()
+        for item in node.PopulationInputs("Item"):
+            need = dict()
+            need['id'] = int(item.Product.string)
+            if item.Amount:
+                need['amount'] = float(item.Amount.string)
+            if item.SupplyWeight:
+                need['influx'] = int(item.SupplyWeight.string)
+            if item.HappinessValue:
+                need['happiness'] = int(item.HappinessValue.string)
+            if item.MoneyValue:
+                need['income'] = int(item.MoneyValue.string)
+            self.values['needs'].append(need)
         self.values['max_pop_per_house'] = sum(x.get('influx', 0) for x in self.values['needs'])
-    
-    @staticmethod
-    def parse_node_population_inputs_dot_item(node: bs4.Tag) -> dict:
-        """
-        <Item>
-          <Product>GUID</Product> * GUID of the product
-          <Amount>Float</Amount> amount of goods each house consumes every second
-          <SupplyWeight>NaturalInteger</SupplyWeight> amount of people moving into each house due to fulfilling this
-          need
-          <HappinessValue>NaturalInteger</HappinessValue> the increase in happiness due to fulfilling this need
-          <MoneyValue>NaturalInteger</MoneyValue> the increase each house in income due to fulfilling this need
-          <FullWeightPopulationCount>NaturalInteger</FullWeightPopulationCount> ?
-          <NoWeightPopulationCount>NaturalInteger</NoWeightPopulationCount> ?
-        </Item>
-        id          .Item.Product        the GUID of the product
-        amount      .Item.Amount         the amount of goods each house consumes every second
-        influx      .Item.SupplyWeight   the amount of people moving into each house due to fulfilling this need
-        happiness   .Item.HappinessValue the increase in happiness due to fulfilling this need
-        income      .Item.MoneyValue     the increase each house in income due to fulfilling this need
-        """
-        need = dict()
-        need['id'] = int(node.Product.string)
-        if node.Amount:
-            need['amount'] = float(node.Amount.string)
-        if node.SupplyWeight:
-            need['influx'] = int(node.SupplyWeight.string)
-        if node.HappinessValue:
-            need['happiness'] = int(node.HappinessValue.string)
-        if node.MoneyValue:
-            need['income'] = int(node.MoneyValue.string)
-        return need
