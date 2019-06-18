@@ -1,22 +1,16 @@
 # coding:utf-8
 import json
-import pathlib
 
 import bs4
 
 from data_parser import population_parser, product_filter_parser, product_parser, production_building_parser
-
-JSON_INDENT = 2
-VERSION = "Update 03.1"
-
-output_path = pathlib.Path("../json")
-data_path = pathlib.Path("../data")
+from data_parser.config import DATA_VERSION, JSON_INDENT, data_path, output_path
 
 
 def load_assets():
     """
     load assets.xml
-    :return: guid to asset map
+    :return: GUID to asset map
     """
     with open(data_path / "assets.xml", encoding = "utf-8") as file:
         soup = bs4.BeautifulSoup(file, "lxml-xml")
@@ -31,12 +25,14 @@ def load_assets():
             tag = asset.Values
             id = int(tag.Standard.GUID.string)
             assets_map[id] = asset
-    # TODO solve inheritance
     for asset in assets_map.values():
-        if asset.Template is not None:
+        if not asset.Template:
+            pass  # TODO solve inheritance
+    for asset in assets_map.values():
+        if asset.Template:
             template = asset.Template.string
             templates.add(template)
-    templates = {"Version": VERSION, "Templates": sorted(templates)}
+    templates = {"Version": DATA_VERSION, "Templates": sorted(templates)}
     with (output_path / "templates.json").open(mode = "w", encoding = "utf-8") as output_file:
         json.dump(templates, output_file, ensure_ascii = False, indent = JSON_INDENT)
     return assets_map
@@ -117,7 +113,7 @@ def main():
             15]("Asset")
     factories10 = production_building_parser.parse_factories(factory10_tags)
     production_buildings.extend(factories10)
-    production_buildings = {"Version": VERSION, "ProductionBuildings": production_buildings}
+    production_buildings = {"Version": DATA_VERSION, "ProductionBuildings": production_buildings}
     with (output_path / "production_buildings.json").open(mode = "w", encoding = "utf-8") as output_file:
         json.dump(production_buildings, output_file, ensure_ascii = False, indent = JSON_INDENT)
     
@@ -130,7 +126,7 @@ def main():
     workforce_tags = \
         soup.AssetList.Groups.contents[7].Groups.contents[1].Groups.contents[3].Groups.contents[1].Groups("Asset")
     workforces = product_parser.parse_workforces(workforce_tags)
-    workforces = {"Version": VERSION, "Workforces": workforces}
+    workforces = {"Version": DATA_VERSION, "Workforces": workforces}
     with (output_path / "workforces.json").open(mode = "w", encoding = "utf-8") as output_file:
         json.dump(workforces, output_file, ensure_ascii = False, indent = JSON_INDENT)
     
@@ -145,7 +141,7 @@ def main():
         soup.AssetList.Groups.contents[7].Groups.contents[1].Groups.contents[3].Groups.contents[7]("Asset")
     products2 = product_parser.parse_normal_products(product2_tags)
     products.extend(products2)
-    products = {"version": VERSION, "Products": products}
+    products = {"version": DATA_VERSION, "Products": products}
     with (output_path / "products.json").open(mode = "w", encoding = "utf-8") as output_file:
         json.dump(products, output_file, ensure_ascii = False, indent = JSON_INDENT)
     
@@ -159,26 +155,26 @@ def main():
         for category in product_categories:
             if category['id'] == category_id:
                 category['products'].append(product['id'])
-    product_categories = {"Version": VERSION, "ProductCategories": product_categories}
+    product_categories = {"Version": DATA_VERSION, "ProductCategories": product_categories}
     with (output_path / "product_categories.json").open(mode = "w", encoding = "utf-8") as output_file:
         json.dump(product_categories, output_file, ensure_ascii = False, indent = JSON_INDENT)
     
     population_group_tags = soup.AssetList.Groups.contents[9].contents[1].contents[1]("Asset")
     population_groups = population_parser.parse_population_groups(population_group_tags)
-    population_groups = {"Version": VERSION, "PopulationGroups": population_groups}
+    population_groups = {"Version": DATA_VERSION, "PopulationGroups": population_groups}
     with (output_path / "population_groups.json").open(mode = "w", encoding = "utf-8") as output_file:
         json.dump(population_groups, output_file, ensure_ascii = False, indent = JSON_INDENT)
     
     population_level_tags = soup.AssetList.Groups.contents[9].contents[1].contents[3]("Asset")
     population_levels = population_parser.parse_population_levels(population_level_tags)
-    population_levels = {"Version": VERSION, "PopulationLevels": population_levels}
+    population_levels = {"Version": DATA_VERSION, "PopulationLevels": population_levels}
     with (output_path / "population_levels.json").open(mode = "w", encoding = "utf-8") as output_file:
         json.dump(population_levels, output_file, ensure_ascii = False, indent = JSON_INDENT)
     
     product_filter_tags = \
         soup.AssetList.Groups.contents[39].Groups.contents[7].Groups.contents[3].Groups.contents[1].Assets("Asset")
     product_filters = product_filter_parser.parse_product_filters(product_filter_tags, assets_map)
-    product_filters = {"Version": VERSION, "ProductFilters": product_filters}
+    product_filters = {"Version": DATA_VERSION, "ProductFilters": product_filters}
     with (output_path / "product_filters.json").open(mode = "w", encoding = "utf-8") as output_file:
         json.dump(product_filters, output_file, ensure_ascii = False, indent = JSON_INDENT)
 
