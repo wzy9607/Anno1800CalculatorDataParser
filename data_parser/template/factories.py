@@ -1,14 +1,12 @@
 # coding:utf-8
 import abc
-import re
 
 import bs4
 
-from .asset import Asset
-from .utils import parse_session_list
+from .building import Building
 
 
-class Factory(Asset):
+class Factory(Building):
     """
     <Standard>
       <GUID>GUID</GUID> *
@@ -155,8 +153,8 @@ class Factory(Asset):
     name                    Standard.Name               name of the building
     text                    Text.LocaText.English.Text  in-game English name of the building
     session                 Building.AssociatedRegion   a list of sessions where the building can be built
-    costs                   Cost.Costs                  a list of build construction costs
-        id                  .Item.Ingredient            GUID of resource
+    costs                   Cost.Costs                  a list of resources required for building construction
+        id                  .Item.Ingredient            GUID of the resource
         amount              .Item.Amount                amount of resource needed
     needed_fertility        Factory7.NeededFertility    some factory requires certain island fertility
     inputs                  FactoryBase.FactoryInputs   a list of products that the factory consumes
@@ -170,7 +168,7 @@ class Factory(Asset):
         amount_per_minute                               amount of product produced per minute
         storage_amount      .Item.StorageAmount         amount of product that the factory can store
     production_time         FactoryBase.CycleTime       the time of a production cycle (minute)
-    maintenances            Maintenance.Maintenances    a list of products that the factory consumes
+    maintenances            Maintenance.Maintenances    a list of products that the factory used for maintenance
         id                  .Item.Product               GUID of the product
         amount              .Item.Amount                amount of product consumed per minute(?)
         inactive_amount     .Item.InactiveAmount        amount of product consumed per minute(?) when the factory is
@@ -189,95 +187,9 @@ class Factory(Asset):
         parse the node, the actual parsers are parse_node_{tag_name}
         """
         super().parse()
-        # modify icon path and name to fit application
-        self.values['icon'] = re.search('icons/icon_(?P<name>.*)', self.values['icon']).group('name')
-        self.parse_node_text(self.values_node.Text)
-        self.parse_node_building(self.values_node.Building)
-        self.parse_node_cost(self.values_node.Cost)
         self.parse_node_factory(self.values_node.Factory7)
         self.parse_node_factory_base(self.values_node.FactoryBase)
         self.parse_node_maintenance(self.values_node.Maintenance)
-    
-    def parse_node_building(self, node: bs4.Tag):
-        """
-        <Building>
-          <BuildingType>Enum("Residence"/"Logistic"/"Warehouse"/"Other")</BuildingType> ?
-          <BuildingCategoryName>GUID</BuildingCategoryName> ?
-          <Destructable>Binary</Destructable> ?
-          <Movable>Binary(Default 1)</Movable> ?
-          <TakeOverTransformation>"Destroy"</TakeOverTransformation> ?
-          <PickingAsset>GUID</PickingAsset> ?
-          <SnapRadius>NaturalInteger</SnapRadius> ?
-          <TerrainType>Enum("Coast"/"Water")</TerrainType> ?
-          <SkipUnlockMessage>Binary(Default 0)</SkipUnlockMessage> ?
-          <HasBorderRectOutline>0</HasBorderRectOutline> ?
-          <BuildModeRandomRotation>Enum(90/180)</BuildModeRandomRotation> ?
-          <InfluencedByNeighbors> ?
-            <Item>
-              <Building>GUID</Building>
-            </Item>
-            ...
-          </InfluencedByNeighbors>
-          <AssociatedRegion>List("Moderate";"Colony01")</AssociatedRegion>
-          <DeactivateHideWhenClippingIntoCamera>Binary(Default 0)</DeactivateHideWhenClippingIntoCamera> ?
-          <BuildingBlockPool> ?
-            <DontCare>
-              <Pool>
-                <Item>
-                  <DirectionOffet>NaturalInteger</DirectionOffet>
-                  <Variation>NaturalInteger</Variation> * unique
-                </Item>
-                ...
-              </Pool>
-            </DontCare>
-            <Corner>
-              <Pool>
-                <Item>
-                  <DirectionOffet>NaturalInteger</DirectionOffet>
-                  <Variation>NaturalInteger</Variation> * unique
-                </Item>
-                ...
-              </Pool>
-            </Corner>
-            <Mid>
-              <Pool>
-                <Item>
-                  <DirectionOffet>NaturalInteger</DirectionOffet>
-                  <Variation>NaturalInteger</Variation> * unique
-                </Item>
-                ...
-              </Pool>
-            </Mid>
-          </BuildingBlockPool>
-        </Building>
-        session     Building.AssociatedRegion    the list of sessions where the building can be built
-        :param node: the Building node
-        """
-        if node.AssociatedRegion:
-            self.values['session'] = parse_session_list(node.AssociatedRegion.string)
-    
-    def parse_node_cost(self, node: bs4.Tag):
-        """
-        <Cost>  construction cost
-          <Costs> *
-            <Item>
-              <Ingredient>GUID</Ingredient> * the GUID of resource
-              <Amount>NaturalInteger(Default 0)</Amount> the amount of resource needed
-            </Item>
-            ...
-          </Costs>
-        </Cost>
-        costs       Cost.Costs          the list of build construction costs
-            id      .Item.Ingredient    the GUID of resource
-            amount  .Item.Amount        the amount of resource needed
-        :param node: the Cost node
-        """
-        self.values["costs"] = list()
-        for cost in node.Costs("Item"):
-            tmp = {'id': int(cost.Ingredient.string)}
-            if cost.Amount:
-                tmp['amount'] = int(cost.Amount.string)
-            self.values["costs"].append(tmp)
     
     def parse_node_factory(self, node: bs4.Tag):
         """
@@ -363,7 +275,7 @@ class Factory(Asset):
             ...
           </Maintenances>
         </Maintenance>
-        maintenances            Maintenance.Maintenances    a list of products that the factory consumes
+        maintenances            Maintenance.Maintenances    a list of products that the factory used for maintenance
             id                  .Item.Product               GUID of the product
             amount              .Item.Amount                amount of product consumed per minute(?)
             inactive_amount     .Item.InactiveAmount        amount of product consumed per minute(?) when the factory is
@@ -431,8 +343,8 @@ class FarmBuilding(Factory):
     name                    Standard.Name               name of the building
     text                    Text.LocaText.English.Text  in-game English name of the building
     session                 Building.AssociatedRegion   a list of sessions where the building can be built
-    costs                   Cost.Costs                  a list of build construction costs
-        id                  .Item.Ingredient            GUID of resource
+    costs                   Cost.Costs                  a list of resources required for building construction
+        id                  .Item.Ingredient            GUID of the resource
         amount              .Item.Amount                amount of resource needed
     needed_fertility        Factory7.NeededFertility    some factory requires certain island fertility
     inputs                  FactoryBase.FactoryInputs   a list of products that the factory consumes
@@ -446,7 +358,7 @@ class FarmBuilding(Factory):
         amount_per_minute                               amount of product produced per minute
         storage_amount      .Item.StorageAmount         amount of product that the factory can store
     production_time         FactoryBase.CycleTime       the time of a production cycle (minute)
-    maintenances            Maintenance.Maintenances    a list of products that the factory consumes
+    maintenances            Maintenance.Maintenances    a list of products that the factory used for maintenance
         id                  .Item.Product               GUID of the product
         amount              .Item.Amount                amount of product consumed per minute(?)
         inactive_amount     .Item.InactiveAmount        amount of product consumed per minute(?) when the factory is
@@ -506,8 +418,8 @@ class FreeAreaBuilding(Factory):
     name                    Standard.Name               name of the building
     text                    Text.LocaText.English.Text  in-game English name of the building
     session                 Building.AssociatedRegion   a list of sessions where the building can be built
-    costs                   Cost.Costs                  a list of build construction costs
-        id                  .Item.Ingredient            GUID of resource
+    costs                   Cost.Costs                  a list of resources required for building construction
+        id                  .Item.Ingredient            GUID of the resource
         amount              .Item.Amount                amount of resource needed
     needed_fertility        Factory7.NeededFertility    some factory requires certain island fertility
     inputs                  FactoryBase.FactoryInputs   a list of products that the factory consumes
@@ -521,7 +433,7 @@ class FreeAreaBuilding(Factory):
         amount_per_minute                               amount of product produced per minute
         storage_amount      .Item.StorageAmount         amount of product that the factory can store
     production_time         FactoryBase.CycleTime       the time of a production cycle (minute)
-    maintenances            Maintenance.Maintenances    a list of products that the factory consumes
+    maintenances            Maintenance.Maintenances    a list of products that the factory used for maintenance
         id                  .Item.Product               GUID of the product
         amount              .Item.Amount                amount of product consumed per minute(?)
         inactive_amount     .Item.InactiveAmount        amount of product consumed per minute(?) when the factory is
@@ -581,8 +493,8 @@ class HeavyFreeAreaBuilding(Factory):
     name                    Standard.Name               name of the building
     text                    Text.LocaText.English.Text  in-game English name of the building
     session                 Building.AssociatedRegion   a list of sessions where the building can be built
-    costs                   Cost.Costs                  a list of build construction costs
-        id                  .Item.Ingredient            GUID of resource
+    costs                   Cost.Costs                  a list of resources required for building construction
+        id                  .Item.Ingredient            GUID of the resource
         amount              .Item.Amount                amount of resource needed
     needed_fertility        Factory7.NeededFertility    some factory requires certain island fertility
     inputs                  FactoryBase.FactoryInputs   a list of products that the factory consumes
@@ -596,7 +508,7 @@ class HeavyFreeAreaBuilding(Factory):
         amount_per_minute                               amount of product produced per minute
         storage_amount      .Item.StorageAmount         amount of product that the factory can store
     production_time         FactoryBase.CycleTime       the time of a production cycle (minute)
-    maintenances            Maintenance.Maintenances    a list of products that the factory consumes
+    maintenances            Maintenance.Maintenances    a list of products that the factory used for maintenance
         id                  .Item.Product               GUID of the product
         amount              .Item.Amount                amount of product consumed per minute(?)
         inactive_amount     .Item.InactiveAmount        amount of product consumed per minute(?) when the factory is
@@ -658,8 +570,8 @@ class FactoryBuilding(Factory):
     name                    Standard.Name               name of the building
     text                    Text.LocaText.English.Text  in-game English name of the building
     session                 Building.AssociatedRegion   a list of sessions where the building can be built
-    costs                   Cost.Costs                  a list of build construction costs
-        id                  .Item.Ingredient            GUID of resource
+    costs                   Cost.Costs                  a list of resources required for building construction
+        id                  .Item.Ingredient            GUID of the resource
         amount              .Item.Amount                amount of resource needed
     needed_fertility        Factory7.NeededFertility    some factory requires certain island fertility
     inputs                  FactoryBase.FactoryInputs   a list of products that the factory consumes
@@ -673,7 +585,7 @@ class FactoryBuilding(Factory):
         amount_per_minute                               amount of product produced per minute
         storage_amount      .Item.StorageAmount         amount of product that the factory can store
     production_time         FactoryBase.CycleTime       the time of a production cycle (minute)
-    maintenances            Maintenance.Maintenances    a list of products that the factory consumes
+    maintenances            Maintenance.Maintenances    a list of products that the factory used for maintenance
         id                  .Item.Product               GUID of the product
         amount              .Item.Amount                amount of product consumed per minute(?)
         inactive_amount     .Item.InactiveAmount        amount of product consumed per minute(?) when the factory is
@@ -736,8 +648,8 @@ class HeavyFactoryBuilding(Factory):
     name                    Standard.Name               name of the building
     text                    Text.LocaText.English.Text  in-game English name of the building
     session                 Building.AssociatedRegion   a list of sessions where the building can be built
-    costs                   Cost.Costs                  a list of build construction costs
-        id                  .Item.Ingredient            GUID of resource
+    costs                   Cost.Costs                  a list of resources required for building construction
+        id                  .Item.Ingredient            GUID of the resource
         amount              .Item.Amount                amount of resource needed
     needed_fertility        Factory7.NeededFertility    some factory requires certain island fertility
     inputs                  FactoryBase.FactoryInputs   a list of products that the factory consumes
@@ -751,7 +663,7 @@ class HeavyFactoryBuilding(Factory):
         amount_per_minute                               amount of product produced per minute
         storage_amount      .Item.StorageAmount         amount of product that the factory can store
     production_time         FactoryBase.CycleTime       the time of a production cycle (minute)
-    maintenances            Maintenance.Maintenances    a list of products that the factory consumes
+    maintenances            Maintenance.Maintenances    a list of products that the factory used for maintenance
         id                  .Item.Product               GUID of the product
         amount              .Item.Amount                amount of product consumed per minute(?)
         inactive_amount     .Item.InactiveAmount        amount of product consumed per minute(?) when the factory is
@@ -811,8 +723,8 @@ class SlotFactoryBuilding(Factory):
     name                    Standard.Name               name of the building
     text                    Text.LocaText.English.Text  in-game English name of the building
     session                 Building.AssociatedRegion   a list of sessions where the building can be built
-    costs                   Cost.Costs                  a list of build construction costs
-        id                  .Item.Ingredient            GUID of resource
+    costs                   Cost.Costs                  a list of resources required for building construction
+        id                  .Item.Ingredient            GUID of the resource
         amount              .Item.Amount                amount of resource needed
     needed_fertility        Factory7.NeededFertility    some factory requires certain island fertility
     inputs                  FactoryBase.FactoryInputs   a list of products that the factory consumes
@@ -826,7 +738,7 @@ class SlotFactoryBuilding(Factory):
         amount_per_minute                               amount of product produced per minute
         storage_amount      .Item.StorageAmount         amount of product that the factory can store
     production_time         FactoryBase.CycleTime       the time of a production cycle (minute)
-    maintenances            Maintenance.Maintenances    a list of products that the factory consumes
+    maintenances            Maintenance.Maintenances    a list of products that the factory used for maintenance
         id                  .Item.Product               GUID of the product
         amount              .Item.Amount                amount of product consumed per minute(?)
         inactive_amount     .Item.InactiveAmount        amount of product consumed per minute(?) when the factory is

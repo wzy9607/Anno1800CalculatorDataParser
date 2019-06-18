@@ -124,35 +124,6 @@ class Product(Asset):
             self.type = Type.STRATEGIC_RESOURCE
         else:
             self.type = Type.NORMAL_PRODUCT
-    
-    # @property
-    # def can_be_negative(self):
-    #     if self.values_node.Product.CanBeNegative and self.values_node.Product.CanBeNegative.string == "1":
-    #         return True
-    #     else:
-    #         return False
-    #
-    # @property
-    # def is_workforce(self):
-    #     if self.values_node.Product.IsWorkforce and self.values_node.Product.IsWorkforce.string == "1":
-    #         return True
-    #     else:
-    #         return False
-    #
-    # @property
-    # def is_abstract_product(self):
-    #     if self.values_node.Product.IsAbstract and self.values_node.Product.IsAbstract.string == "1":
-    #         return True
-    #     else:
-    #         return False
-    #
-    # @property
-    # def is_strategic_resource(self):
-    #     if self.values_node.Product.IsStrategicResource and self.values_node.Product.IsStrategicResource.string ==
-    #     "1":
-    #         return True
-    #     else:
-    #         return False
 
 
 class ResourceProduct(Product):

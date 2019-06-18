@@ -23,8 +23,8 @@ def load_assets():
             if asset.name == "Globe":
                 continue
             tag = asset.Values
-            id = int(tag.Standard.GUID.string)
-            assets_map[id] = asset
+            guid = int(tag.Standard.GUID.string)
+            assets_map[guid] = asset
     for asset in assets_map.values():
         if not asset.Template:
             pass  # TODO solve inheritance
