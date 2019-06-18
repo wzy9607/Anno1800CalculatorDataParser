@@ -43,8 +43,8 @@ class Product(Asset):
     template_name = "Product"
     
     def __init__(self, node: bs4.Tag, **kwargs):
-        super().__init__(node, **kwargs)
         self.type = None
+        super().__init__(node, **kwargs)
     
     def parse(self):
         """

@@ -6,35 +6,25 @@ from data_parser.template import Product, Text
 
 
 def parse_products(tags: bs4.Tag) -> list:
-    products = []
-    for tag in tags:
-        products.append(Product(tag).values)
+    products = [Product(tag).get_values() for tag in tags]
     return products
 
 
 def parse_workforces(tags: bs4.Tag) -> list:
-    products = []
-    for tag in tags:
-        products.append(Product(tag).values)
+    products = [Product(tag).values for tag in tags]
     return products
 
 
 def parse_abstract_products(tags: bs4.Tag) -> list:
-    products = []
-    for tag in tags:
-        products.append(Product(tag).values)
+    products = [Product(tag).get_values() for tag in tags]
     return products
 
 
 def parse_normal_products(tags: bs4.Tag) -> list:
-    products = []
-    for tag in tags:
-        products.append(Product(tag).values)
+    products = [Product(tag).get_values() for tag in tags]
     return products
 
 
 def parse_product_categories(tags: bs4.Tag) -> list:
-    product_categories = []
-    for tag in tags:
-        product_categories.append(Text(tag).values)
+    product_categories = [Text(tag).get_values() for tag in tags]
     return product_categories

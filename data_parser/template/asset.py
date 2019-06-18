@@ -3,6 +3,8 @@ import abc
 
 import bs4
 
+from data_parser.config import DEFAULT_TARGET
+
 
 class Asset(abc.ABC):
     """
@@ -37,8 +39,10 @@ class Asset(abc.ABC):
         self.values_node = node.Values
         self.values = dict()
         # parse the node
+        self.parsed = False
         if parse:
             self.parse()
+            self.parsed = True
     
     def parse(self):
         """
@@ -81,3 +85,23 @@ class Asset(abc.ABC):
         :param node: the Text node
         """
         self.values['text'] = str(node.LocaText.English.Text.string)
+
+    def get_values(self, target = DEFAULT_TARGET):
+        """
+        Prepare data for target application.
+        :param target: target application
+            "all" all data
+            "calculator" only data necessary for calculator
+        :return: values
+        """
+        if target == "all":
+            return self.values
+        elif target == "calculator":
+            return self.get_values_for_calculator()
+
+    def get_values_for_calculator(self):
+        """
+        Prepare data to suit calculator application.
+        :return: values
+        """
+        return self.values
