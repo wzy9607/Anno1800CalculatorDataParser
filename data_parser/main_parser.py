@@ -1,5 +1,8 @@
 # coding:utf-8
+import copy
 import json
+import logging
+import typing
 
 import bs4
 
@@ -7,15 +10,68 @@ from data_parser import population_parser, product_filter_parser, product_parser
 from data_parser.config import DATA_VERSION, JSON_INDENT, data_path, output_path
 
 
-def load_assets():
+def handle_node_inheritance(modified_node: bs4.element.Tag, new_node: bs4.element.Tag) -> None:
+    if len(new_node.contents) >=1 and new_node.contents[1].name == "Item":  # items
+        for index in range(len(new_node.contents)):
+            if isinstance(new_node.contents[index], bs4.NavigableString):
+                continue
+            new_tag = new_node.contents[index]
+            assert new_tag.name == "Item"
+        for index in range(len(modified_node.contents)):
+            if isinstance(modified_node.contents[index], bs4.NavigableString):
+                continue
+            modified_tag = modified_node.contents[index]
+            assert modified_tag.name == "Item"
+        # TODO solve item inheritance
+    else:
+        for child in new_node.children:
+            if isinstance(child, bs4.NavigableString):
+                continue
+            new_tag = child
+            modified_tags = modified_node.find_all(new_tag.name, recursive = False)
+            if len(modified_tags) == 0:
+                continue
+            elif len(modified_tags) == 1:
+                modified_tag = modified_tags[0]
+                if modified_tag.isSelfClosing:
+                    continue
+                if len(modified_tag.contents) == 1:  # the only content is a string
+                    assert len(new_tag.contents) == 1
+                    assert isinstance(modified_tag.contents[0], bs4.NavigableString)
+                    new_tag.string = modified_tag.string
+                else:
+                    assert len(modified_tag.contents) != 1
+                    handle_node_inheritance(modified_tag, new_tag)
+            else:
+                assert False
+        for child in modified_node.children:
+            if isinstance(child, bs4.NavigableString):
+                continue
+            modified_tag = child
+            if new_node.find(modified_tag.name, recursive = False):
+                continue
+            new_node.append(copy.copy(modified_tag))
+
+
+def handle_inheritance(soup: bs4.BeautifulSoup, asset_node: bs4.element.Tag, base_asset_node: bs4.element.Tag) -> None:
+    if not base_asset_node.Template:  # base asset has a base asset
+        return
+    template_tag = soup.new_tag("Template")
+    template_tag.string = base_asset_node.Template.string
+    asset_node.BaseAssetGUID.replace_with(template_tag)
+    new_values = copy.copy(base_asset_node.Values)
+    handle_node_inheritance(asset_node.Values, new_values)
+    # TODO solve inheritance
+    # asset_node.Values.replace_with(new_values)
+
+
+def generate_assets_map(soup: bs4.BeautifulSoup) -> typing.Dict[int, bs4.element.Tag]:
     """
-    load assets.xml
+    generate assets map from the beautiful soup.
+    :param soup: the beautiful soup
     :return: GUID to asset map
     """
-    with open(data_path / "assets.xml", encoding = "utf-8") as file:
-        soup = bs4.BeautifulSoup(file, "lxml-xml")
     assets_map = dict()
-    templates = set()
     for assets in soup.find_all("Assets"):
         for asset in assets.children:
             if isinstance(asset, bs4.NavigableString):
@@ -25,9 +81,36 @@ def load_assets():
             tag = asset.Values
             guid = int(tag.Standard.GUID.string)
             assets_map[guid] = asset
-    for asset in assets_map.values():
-        if not asset.Template:
-            pass  # TODO solve inheritance
+    return assets_map
+
+
+def load_assets() -> typing.Tuple[typing.Dict[int, bs4.element.Tag], bs4.BeautifulSoup]:
+    """
+    load assets.xml
+    :return: GUID to asset map, soup
+    """
+    logging.info("Reading assets.xml.")
+    with open(data_path / "assets.xml", encoding = "utf-8") as file:
+        soup = bs4.BeautifulSoup(file, "lxml-xml")
+    
+    logging.info("Generating asset map.")
+    assets_map = generate_assets_map(soup)
+    
+    logging.info("Solving asset inheritance.")
+    has_inheritance_to_solve = True
+    while has_inheritance_to_solve:
+        has_inheritance_to_solve = False
+        for asset in assets_map.values():
+            if asset.Template:
+                pass
+            elif asset.BaseAssetGUID:
+                has_inheritance_to_solve = True
+                handle_inheritance(soup, asset, assets_map[int(asset.BaseAssetGUID.string)])
+            else:
+                raise NotImplementedError
+    
+    logging.info("Counting asset templates.")
+    templates = set()
     for asset in assets_map.values():
         if asset.Template:
             template = asset.Template.string
@@ -35,13 +118,12 @@ def load_assets():
     templates = {"Version": DATA_VERSION, "Templates": sorted(templates)}
     with (output_path / "templates.json").open(mode = "w", encoding = "utf-8") as output_file:
         json.dump(templates, output_file, ensure_ascii = False, indent = JSON_INDENT)
-    return assets_map
+    return assets_map, soup
 
 
-def main():
-    assets_map = load_assets()
-    with open(data_path / "assets.xml", encoding = "utf-8") as file:
-        soup = bs4.BeautifulSoup(file, "lxml-xml")
+def main() -> None:
+    logging.basicConfig(level = logging.DEBUG)
+    assets_map, soup = load_assets()
     
     farm_tags = \
         soup.AssetList.Groups.contents[5].Groups.contents[1].Groups.contents[1].contents[1] \
